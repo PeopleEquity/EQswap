@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a84d2759-63a9-4ce2-b304-6146bd73f01c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/addressInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/addressInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/newswap.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +41,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/public/images/dcs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/public/images/logo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -60,11 +60,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/public/images/logo" />
       <recent name="$PROJECT_DIR$/app/public/images/dcs" />
       <recent name="$PROJECT_DIR$/app/src/hooks" />
       <recent name="$PROJECT_DIR$/app/src/views/Ranking" />
       <recent name="$PROJECT_DIR$/app/src/pages" />
-      <recent name="$PROJECT_DIR$/app/public/images/tokens" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/pages" />
@@ -142,7 +142,7 @@
       <workItem from="1683168231388" duration="11273000" />
       <workItem from="1683425830574" duration="9012000" />
       <workItem from="1683447079223" duration="20275000" />
-      <workItem from="1683542947078" duration="2719000" />
+      <workItem from="1683542947078" duration="3501000" />
     </task>
     <servers />
   </component>
