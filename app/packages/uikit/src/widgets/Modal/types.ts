@@ -1,0 +1,21 @@
+import { BoxProps } from "../../components/Box";
+
+export interface ModalTheme {
+  background: string;
+}
+
+export type Handler = () => void;
+
+export interface InjectedProps {
+  onDismiss?: Handler;
+  mode?: string;
+}
+
+export interface ModalProps extends InjectedProps, BoxProps {
+  title: string;
+  hideCloseButton?: boolean;
+  hideHeader?: boolean
+  onBack?: () => void;
+  bodyPadding?: string;
+  headerBackground?: string;
+}

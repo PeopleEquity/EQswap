@@ -1,0 +1,13 @@
+version: "3"
+services:
+  pancake:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    ports:
+      - "3007:3003"
+    network_mode: host
+    logging:
+      driver: "json-file"
+      options:  
+        max-size: "512m"
