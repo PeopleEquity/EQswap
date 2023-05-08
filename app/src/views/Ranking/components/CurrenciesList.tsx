@@ -718,7 +718,7 @@ export default function CurrenciesList({type, setIsShowMenu}) {
                                                 e.stopPropagation()
                                               }}>
                                                 <CopyButton/>
-                                                <Tooltip isTooltipDisplayed={copy === item.wallet}>Copied</Tooltip>
+                                                <Tooltip isTooltipDisplayed={copy === item.wallet}>{t('copied')}</Tooltip>
                                               </CopyWrapper>
                                             </CopyToClipboard>
                                         ) : null}
@@ -726,7 +726,7 @@ export default function CurrenciesList({type, setIsShowMenu}) {
                                     </UserWrapper2>
                                   </InfoWrapper2>
                                   <ValueWrapper2>
-                                    {item?.symbol ? (type === 'people' ? `${item.amt}` : `${toStringAmt(item.amt)} ${item.unit}`) : ''}
+                                    {item?.symbol ? (subType === 'people' ? `${item.amt}` : `${toStringAmt(item.amt)} ${item.unit}`) : ''}
                                   </ValueWrapper2>
                                 </ListItem>
                             ))
