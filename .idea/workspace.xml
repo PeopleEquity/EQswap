@@ -3,7 +3,24 @@
   <component name="ChangeListManager">
     <list default="true" id="a84d2759-63a9-4ce2-b304-6146bd73f01c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/packages/localization/src/config/translations.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/packages/localization/src/config/translations.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/locales/en-US.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/locales/en-US.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/locales/zh-CN.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/locales/zh-CN.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/public/locales/zh-TW.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/public/locales/zh-TW.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/CurrencyInputPanel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/CurrencyInputPanel/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/components/PriceInputPanel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/components/PriceInputPanel/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/config/constants/info.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/config/constants/info.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Pool/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Pool/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/addressInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/addressInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/components/CurrenciesList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/components/CurrenciesList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/components/TrendingList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/components/TrendingList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/components/WealthList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/components/WealthList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Ranking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Ranking/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Swap/components/AdvancedSwapDetails.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Swap/components/AdvancedSwapDetails.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Swap/components/SwapModalFooter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Swap/components/SwapModalFooter.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/views/Swap/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/views/Swap/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -65,7 +65,6 @@ const Index = styled.div`
 `
 
 const UserName = styled.div`
-  margin: 0 12px 0 18px;
   display: flex;
   align-items: center;
   font-family: 'PingFang SC';
@@ -80,10 +79,6 @@ const UserName = styled.div`
   min-width: 160px;
   @media screen and (max-width: 852px) {
     width: 200px;
-    margin: 0 0 0 18px;
-  }
-  @media screen and (max-width: 576px) {
-    margin: 0 0 0 9px;
   }
 `
 
@@ -154,11 +149,15 @@ const UserWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0 0 0 18px;
   @media screen and (max-width: 852px) {
     align-items: baseline;
     flex-direction: column;
-    width: 80px;
-    overflow: hidden;
+    width: 160px;
+    margin: 0 0 0 18px;
+  }
+  @media screen and (max-width: 576px) {
+    margin: 0 0 0 9px;
   }
 `
 
@@ -166,10 +165,15 @@ const UserWrapper2 = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  margin: 0 0 0 18px;
   @media screen and (max-width: 852px) {
     align-items: baseline;
     flex-direction: column;
     width: 160px;
+    margin: 0 0 0 18px;
+  }
+  @media screen and (max-width: 576px) {
+    margin: 0 0 0 9px;
   }
 `
 

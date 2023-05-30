@@ -222,6 +222,12 @@ const ListItemTitle = styled.div`
   font-weight: 400;
   font-size: 18px;
   color: #ffffff;
+  text-align: left;
+  & > span {
+    font-size: 14px;
+    margin-top: 6px;
+    display: block;
+  }
   @media screen and (max-width: 576px) {
     font-size: 12px;
   }
@@ -446,7 +452,11 @@ const DetailsPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ a
           <ListItem>
             <No>{info?.list?.rela_rank ? `No.${info?.list?.rela_rank}` : ''}</No>
             <ListInfo>
-              <ListItemTitle>{t('recommendEarningsList')}</ListItemTitle>
+              <ListItemTitle>
+                {t('recommendEarningsList')}
+                <br />
+                <span>{t('recommendEarningsListSubTitle')}</span>
+              </ListItemTitle>
               <ListItemValue>{info?.list?.rela ? `+$${info?.list?.rela}` : '-'}</ListItemValue>
             </ListInfo>
           </ListItem>

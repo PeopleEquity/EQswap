@@ -66,7 +66,7 @@ const TopBar = styled.div`
 `
 
 const SubTab = styled.div`
-  width: 343px;
+  width: 360px;
   height: 36px;
   border-radius: 6px;
   background: #f4f5f8;
@@ -91,8 +91,10 @@ const SubTab = styled.div`
       color: #4263eb;
       font-weight: 600;
       background: #fff;
-      
     }
+  }
+  @media screen and (max-width: 852px) {
+    width: 100%;
   }
 `
 

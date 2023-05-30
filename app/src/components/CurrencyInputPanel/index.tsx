@@ -54,12 +54,12 @@ const InputPanel = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundAlt};
   z-index: 1;
 `
-const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
+const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean; isDark?: boolean  }>`
   /*border: 1px solid ${({ theme }) => theme.colors.inputCat};*/
   border-radius: ${({ theme }) => theme.radii.default};
   /*background-color: ${({ theme }) => theme.colors.input};*/
-  border: 1px solid #f6f5fe;
-  background-color: #f6f5fe;
+  border: ${({isDark}) => isDark ? '1px solid #372F47' : '1px solid #f6f5fe' };
+  background-color: ${({isDark}) => isDark ? '#372F47' : '#f6f5fe' };
   box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
 `
 
@@ -130,6 +130,7 @@ export default function CurrencyInputPanel({
     t,
     currentLanguage: { locale },
   } = useTranslation()
+  const { isDark } = useTheme()
 
   const token = pair ? pair.liquidityToken : currency instanceof Token ? currency : null
   const tokenAddress = token ? isAddress(token.address) : null
@@ -176,7 +177,7 @@ export default function CurrencyInputPanel({
         )}
       </Flex>
       <InputPanel>
-        <Container as="label" zapStyle={zapStyle} error={error}>
+        <Container as="label" zapStyle={zapStyle} error={error} isDark={isDark}>
           {labelType === 'swap' ? (
             <Flex alignItems="center" justifyContent="space-between" style={{ padding: '0 12px', paddingTop: '10px' }}>
               <Text style={{ fontSize: '14px' }}>{label}</Text>

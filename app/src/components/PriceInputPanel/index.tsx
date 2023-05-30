@@ -1,6 +1,6 @@
 import { Currency, Pair, Token } from '@pancakeswap/sdk'
 import { Button, ChevronDownIcon, Text, useModal, Flex, Box } from '@pancakeswap/uikit'
-import styled, { css } from 'styled-components'
+import styled, {css, useTheme} from 'styled-components'
 import { isAddress } from 'utils'
 import { useTranslation } from '@pancakeswap/localization'
 import { WrappedTokenInfo } from 'state/types'
@@ -58,12 +58,12 @@ const InputPanel = styled.div`
   border-radius: ${({ theme }) => theme.radii.default};
   overflow: hidden;
 `
-const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean }>`
+const Container = styled.div<{ zapStyle?: ZapStyle; error?: boolean; isDark?: boolean }>`
   border-radius: 16px;
   /*background-color: ${({ theme }) => theme.colors.input};*/
   box-shadow: ${({ theme, error }) => theme.shadows[error ? 'warning' : 'inset']};
-  border: 1px solid #f6f5fe;
-  background-color: #f6f5fe;
+  border: ${({isDark}) => isDark ? '1px solid #372F47' : '1px solid #f6f5fe' };
+  background-color: ${({isDark}) => isDark ? '#372F47' : '#f6f5fe' };
   ${({ zapStyle }) =>
     !!zapStyle &&
     css`
@@ -152,6 +152,7 @@ export default function PriceInputPanel({
     t,
     currentLanguage: { locale },
   } = useTranslation()
+  const { isDark } = useTheme()
 
   const token = pair ? pair.liquidityToken : currency instanceof Token ? currency : null
   const tokenAddress = token ? isAddress(token.address) : null
@@ -246,7 +247,7 @@ export default function PriceInputPanel({
         </Flex>
       </Flex>
       <InputPanel>
-        <Container as="label" zapStyle={zapStyle} error={error}>
+        <Container as="label" zapStyle={zapStyle} error={error} isDark={isDark}>
           <LabelRow style={{ display: 'flex', alignItems: 'center' }}>
             <Text style={{ fontSize: '12px' }}>{t('priceOne')} {currency.symbol} =</Text>
             <NumericalInput

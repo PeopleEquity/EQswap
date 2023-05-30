@@ -100,7 +100,7 @@ export default function Pool() {
   return !isAddWhitelist ? (
     <Page>
       <AppBody>
-        <AppHeader title={t('Your Liquidity')} subtitle={t('Remove liquidity to receive tokens back')} />
+        <AppHeader title={t('Your Liquidity')} subtitle={''} />
         <Text color={theme.colors.contrast} p={[0, 17]} fontSize="12px">
           {t('liquidityText1')}
           <br />
