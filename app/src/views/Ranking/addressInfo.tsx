@@ -464,7 +464,7 @@ const DetailsPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ a
             <No>{info?.list?.links_rank ? `No.${info?.list?.links_rank}` : ''}</No>
             <ListInfo>
               <ListItemTitle>{t('recommendNumberList')}</ListItemTitle>
-              <ListItemValue>{info?.list?.links ? `+$${info?.list?.links}` : '-'}</ListItemValue>
+              <ListItemValue>{info?.list?.links ? `${info?.list?.links}` : '-'}</ListItemValue>
             </ListInfo>
           </ListItem>
         </ListWrapper>
