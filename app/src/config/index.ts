@@ -12,6 +12,7 @@ export const BSC_BLOCK_TIME = 3
 export const BASE_BSC_SCAN_URLS = {
   [ChainId.BSC]: 'https://bscscan.com',
   [ChainId.BSC_TESTNET]: 'https://testnet.bscscan.com',
+  [ChainId.ARB_TESTNET]: 'https://goerli.arbiscan.io',
 }
 
 // CAKE_PER_BLOCK details

@@ -124,6 +124,29 @@ export const bscTest: Chain = {
   testnet: true,
 }
 
+export const arbTest: Chain = {
+  id: 421613,
+  name: 'ARB Testnet',
+  network: 'arb-testnet',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    default: 'https://goerli-rollup.arbitrum.io/rpc',
+    public: 'https://goerli-rollup.arbitrum.io/rpc',
+  },
+  blockExplorers: {
+    default: { name: 'ArbScan', url: 'https://goerli.arbiscan.io/' },
+  },
+  multicall: {
+    address: '0x654dfDf027386296591b21b8d7E61977cD5571Ee',
+    blockCreated: 20503403,
+  },
+  testnet: true,
+}
+
 export const CHAINS_TESTNET = [
   bscTest,
   rinkeby,

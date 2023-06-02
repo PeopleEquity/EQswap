@@ -101,6 +101,14 @@ export const WBNB = {
     'Wrapped BNB',
     'https://www.binance.org'
   ),
+  [ChainId.ARB_TESTNET]: new Token(
+      ChainId.ARB_TESTNET,
+      '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
+      18,
+      'ETH',
+      'ETH',
+      ''
+  ),
 }
 
 export const WNATIVE = {
@@ -108,4 +116,5 @@ export const WNATIVE = {
   // [ChainId.RINKEBY]: WETH9[ChainId.RINKEBY],
   [ChainId.BSC]: WBNB[ChainId.BSC],
   [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
+  [ChainId.ARB_TESTNET]: WBNB[ChainId.ARB_TESTNET],
 }

@@ -73,6 +73,22 @@
       "chainId": 97,
       "decimals": 18,
       "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png"
+    },
+    {
+      "name": "PE Token",
+      "symbol": "PE",
+      "address": "0xd8855b79656E023F1D14E3697aBF1222d61ddD5d",
+      "chainId": 421613,
+      "decimals": 18,
+      "logoURI": "/images/tokens/0x9411A8a8757F08591594333306fe115927C072E4.png"
+    },
+    {
+      "name": "USDT Token",
+      "symbol": "USDT",
+      "address": "0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4",
+      "chainId": 421613,
+      "decimals": 18,
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png"
     }
   ]
 }

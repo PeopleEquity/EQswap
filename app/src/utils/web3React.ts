@@ -1,17 +1,17 @@
-import { InjectedConnector } from '@web3-react/injected-connector'
-import { WalletConnectConnector } from '@web3-react/walletconnect-connector'
-import { AbstractConnector } from '@web3-react/abstract-connector'
-import { ChainId } from '@pancakeswap/sdk'
-import { BscConnector } from '@binance-chain/bsc-connector'
-import { ConnectorNames } from '@pancakeswap/uikit'
+import {InjectedConnector} from '@web3-react/injected-connector'
+import {WalletConnectConnector} from '@web3-react/walletconnect-connector'
+import {AbstractConnector} from '@web3-react/abstract-connector'
+import {ChainId} from '@pancakeswap/sdk'
+import {BscConnector} from '@binance-chain/bsc-connector'
+import {ConnectorNames} from '@pancakeswap/uikit'
 import useWeb3Provider from 'hooks/useActiveWeb3React'
-import { hexlify } from '@ethersproject/bytes'
-import { toUtf8Bytes } from '@ethersproject/strings'
-import { Web3Provider } from '@ethersproject/providers'
+import {hexlify} from '@ethersproject/bytes'
+import {toUtf8Bytes} from '@ethersproject/strings'
+import {Web3Provider} from '@ethersproject/providers'
 
 const POLLING_INTERVAL = 12000
 
-const SUPPORTED_CHAIN_ID = [ChainId.BSC, ChainId.BSC_TESTNET]
+const SUPPORTED_CHAIN_ID = [ChainId.BSC, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET]
 
 export const injected = new InjectedConnector({ supportedChainIds: SUPPORTED_CHAIN_ID })
 
@@ -19,6 +19,7 @@ const walletconnect = new WalletConnectConnector({
   rpc: {
     [ChainId.BSC]: 'https://bsc-dataseed.binance.org',
     [ChainId.BSC_TESTNET]: 'https://data-seed-prebsc-2-s3.binance.org:8545',
+    [ChainId.ARB_TESTNET]: 'https://goerli-rollup.arbitrum.io/rpc',
   },
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,

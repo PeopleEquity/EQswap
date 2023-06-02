@@ -90,6 +90,14 @@ const BUSD_TESTNET = new Token(
 export const BUSD: Record<ChainId, Token> = {
   [ChainId.BSC]: BUSD_MAINNET,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
+  [ChainId.ARB_TESTNET]: new Token(
+      ChainId.ARB_TESTNET,
+      '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
+      18,
+      'BUSD',
+      'Binance USD',
+      'https://www.paxos.com/busd/',
+  ),
 }
 
 export const bscTokens = {
@@ -2392,5 +2400,24 @@ export const bscTestnetTokens = {
     'BAKE',
     'Bakeryswap Token',
     'https://www.bakeryswap.org/',
+  ),
+}
+
+export const arbTestnetTokens = {
+  pe: new Token(
+      ChainId.ARB_TESTNET,
+      '0xd8855b79656E023F1D14E3697aBF1222d61ddD5d',
+      18,
+      'PE',
+      'PeopleEquity Token',
+      'https://peopleequity.club/',
+  ),
+  usdt: new Token(
+      ChainId.ARB_TESTNET,
+      '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
+      18,
+      'USDT',
+      'usdt',
+      '',
   ),
 }
