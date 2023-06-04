@@ -6,6 +6,7 @@ import { Vote } from 'state/types'
 import { IPFS_GATEWAY } from '../../config'
 import TextEllipsis from '../TextEllipsis'
 import Row, { AddressColumn, ChoiceColumn, VotingPowerColumn } from './Row'
+import {useWeb3React} from "@web3-react/core";
 
 interface VoteRowProps {
   vote: Vote
@@ -14,6 +15,7 @@ interface VoteRowProps {
 
 const VoteRow: React.FC<React.PropsWithChildren<VoteRowProps>> = ({ vote, isVoter }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const hasVotingPower = !!vote.metadata?.votingPower
 
   const votingPower = hasVotingPower
@@ -27,7 +29,7 @@ const VoteRow: React.FC<React.PropsWithChildren<VoteRowProps>> = ({ vote, isVote
     <Row>
       <AddressColumn>
         <Flex alignItems="center">
-          <LinkExternal href={getBscScanLink(vote.voter, 'address')}>{truncateHash(vote.voter)}</LinkExternal>
+          <LinkExternal href={getBscScanLink(vote.voter, 'address', chainId)}>{truncateHash(vote.voter)}</LinkExternal>
           {isVoter && (
             <Tag variant="success" outline ml="8px">
               <CheckmarkCircleIcon mr="4px" /> {t('Voted')}

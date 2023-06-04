@@ -13,6 +13,8 @@ import StatBox, { StatBoxItem } from '../../Nft/market/components/StatBox'
 import MarketPageTitle from '../../Nft/market/components/MarketPageTitle'
 import EditProfileModal from './EditProfileModal'
 import AvatarImage from '../../Nft/market/components/BannerHeader/AvatarImage'
+import { getScan } from '../../../utils/wallet'
+
 
 interface HeaderProps {
   accountPath: string
@@ -37,7 +39,7 @@ const ProfileHeader: React.FC<React.PropsWithChildren<HeaderProps>> = ({
   onSuccess,
 }) => {
   const { t } = useTranslation()
-  const { account } = useWeb3React()
+  const { account, chainId } = useWeb3React()
   const [onEditProfileModal] = useModal(
     <EditProfileModal
       onSuccess={() => {
@@ -90,9 +92,9 @@ const ProfileHeader: React.FC<React.PropsWithChildren<HeaderProps>> = ({
               style={{
                 width: 'fit-content',
               }}
-              href={getBscScanLink(accountPath, 'address') || ''}
+              href={getBscScanLink(accountPath, 'address', chainId) || ''}
               // @ts-ignore
-              alt={t('View BscScan for user address')}
+              alt={t('View %scan% for user address', {scan: getScan(chainId)})}
             >
               <BscScanIcon width="20px" color="primary" />
             </IconButton>
@@ -126,7 +128,7 @@ const ProfileHeader: React.FC<React.PropsWithChildren<HeaderProps>> = ({
         {getIconButtons()}
       </>
     )
-  }, [accountPath, avatarImage, isConnectedAccount, onSuccess, hasProfile, t])
+  }, [accountPath, avatarImage, isConnectedAccount, onSuccess, hasProfile, t, chainId])
 
   const title = useMemo(() => {
     if (profileUsername) {
@@ -159,7 +161,7 @@ const ProfileHeader: React.FC<React.PropsWithChildren<HeaderProps>> = ({
     return (
       <Flex flexDirection="column" mb={[16, null, 0]} mr={[0, null, 16]}>
         {accountPath && profile?.username && (
-          <Link href={getBscScanLink(accountPath, 'address')} external bold color="primary">
+          <Link href={getBscScanLink(accountPath, 'address', chainId)} external bold color="primary">
             {truncateHash(accountPath)}
           </Link>
         )}

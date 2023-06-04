@@ -29,6 +29,7 @@ import TransactionTable from 'views/Info/components/InfoTables/TransactionsTable
 import Percent from 'views/Info/components/Percent'
 import SaveIcon from 'views/Info/components/SaveIcon'
 import { formatAmount } from 'utils/formatInfoNumbers'
+import {useWeb3React} from "@web3-react/core";
 
 const ContentLayout = styled.div`
   display: grid;
@@ -63,6 +64,7 @@ const LockedTokensContainer = styled(Flex)`
 
 const PoolPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ address: routeAddress }) => {
   const { isXs, isSm } = useMatchBreakpointsContext()
+  const { chainId } = useWeb3React()
   const { t } = useTranslation()
   const [showWeeklyData, setShowWeeklyData] = useState(0)
   const { tooltip, tooltipVisible, targetRef } = useTooltip(
@@ -96,8 +98,8 @@ const PoolPage: React.FC<React.PropsWithChildren<{ address: string }>> = ({ addr
               </Flex>
             </Breadcrumbs>
             <Flex justifyContent={[null, null, 'flex-end']} mt={['8px', '8px', 0]}>
-              <LinkExternal mr="8px" href={getBscScanLink(address, 'address')}>
-                {t('View on BscScan')}
+              <LinkExternal mr="8px" href={getBscScanLink(address, 'address', chainId)}>
+                {t('View on %scan%', {scan: getScan(chainId)})}
               </LinkExternal>
               <SaveIcon fill={watchlistPools.includes(address)} onClick={() => addPoolToWatchlist(address)} />
             </Flex>

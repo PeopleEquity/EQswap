@@ -4,11 +4,12 @@ import { CAKE } from 'config/constants/tokens'
 import { FetchStatus } from 'config/constants/types'
 import { useTranslation } from '@pancakeswap/localization'
 import useAuth from 'hooks/useAuth'
-import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import useTokenBalance, { useGetEthBalance } from 'hooks/useTokenBalance'
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
 import CopyAddress from './CopyAddress'
+import { getBaseToken, getScan } from 'utils/wallet'
 
 interface WalletInfoProps {
   hasLowBnbBalance: boolean
@@ -18,8 +19,8 @@ interface WalletInfoProps {
 const WalletInfo: React.FC<React.PropsWithChildren<WalletInfoProps>> = ({ hasLowBnbBalance, onDismiss }) => {
   const { t } = useTranslation()
   const { account, chainId } = useWeb3React()
-  const { balance, fetchStatus } = useGetBnbBalance()
-  const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(CAKE[chainId]?.address)
+  const { balance, fetchStatus } = useGetEthBalance()
+  /* const { balance: cakeBalance, fetchStatus: cakeFetchStatus } = useTokenBalance(CAKE[chainId]?.address) */
   const { logout } = useAuth()
 
   const handleLogout = () => {
@@ -36,29 +37,29 @@ const WalletInfo: React.FC<React.PropsWithChildren<WalletInfoProps>> = ({ hasLow
       {hasLowBnbBalance && (
         <Message variant="warning" mb="24px">
           <Box>
-            <Text fontWeight="bold">{t('BNB Balance Low')}</Text>
-            <Text as="p">{t('You need BNB for transaction fees.')}</Text>
+            <Text fontWeight="bold">{t('%baseToken% Balance Low', {baseToken: getBaseToken(chainId)})}</Text>
+            <Text as="p">{t('You need %baseToken% for transaction fees.', {baseToken: getBaseToken(chainId)})}</Text>
           </Box>
         </Message>
       )}
       <Flex alignItems="center" justifyContent="space-between">
-        <Text color="textSubtle">{t('BNB Balance')}</Text>
+        <Text color="textSubtle">{t('%baseToken% Balance', {baseToken: getBaseToken(chainId)})}</Text>
         {fetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
           <Text>{formatBigNumber(balance, 6)}</Text>
         )}
       </Flex>
-      <Flex alignItems="center" justifyContent="space-between" mb="24px">
+      {/* <Flex alignItems="center" justifyContent="space-between" mb="24px">
         <Text color="textSubtle">{t('CAKE Balance')}</Text>
         {cakeFetchStatus !== FetchStatus.Fetched ? (
           <Skeleton height="22px" width="60px" />
         ) : (
           <Text>{getFullDisplayBalance(cakeBalance, 18, 3)}</Text>
         )}
-      </Flex>
+      </Flex> */}
       <Flex alignItems="center" justifyContent="end" mb="24px">
-        <LinkExternal href={getBscScanLink(account, 'address')}>{t('View on BscScan')}</LinkExternal>
+        <LinkExternal href={getBscScanLink(account, 'address', chainId)}>{t('View on %scan%', {scan: getScan(chainId)})}</LinkExternal>
       </Flex>
       <Button variant="secondary" width="100%" onClick={handleLogout}>
         {t('Disconnect Wallet')}

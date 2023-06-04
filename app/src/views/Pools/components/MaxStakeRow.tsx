@@ -6,6 +6,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import Balance from 'components/Balance'
 import { getFullDisplayBalance } from 'utils/formatBalance'
 import { Token } from '@pancakeswap/sdk'
+import useActiveWeb3React from "../../../hooks/useActiveWeb3React";
 
 interface MaxStakeRowProps {
   small?: boolean
@@ -25,6 +26,7 @@ const MaxStakeRow: React.FC<React.PropsWithChildren<MaxStakeRowProps>> = ({
   hasPoolStarted,
 }) => {
   const { t } = useTranslation()
+  const { chainId } = useActiveWeb3React()
 
   return (
     <Flex flexDirection="column">
@@ -37,7 +39,7 @@ const MaxStakeRow: React.FC<React.PropsWithChildren<MaxStakeRowProps>> = ({
       {hasPoolStarted && (
         <Flex justifyContent="space-between" alignItems="center">
           <Text small={small}>{t('Max. stake limit ends in')}:</Text>
-          <Link external href={getBscScanLink(stakingLimitEndBlock, 'countdown')}>
+          <Link external href={getBscScanLink(stakingLimitEndBlock, 'countdown', chainId)}>
             <Balance
               small={small}
               value={Math.max(stakingLimitEndBlock - currentBlock, 0)}

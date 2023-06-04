@@ -7,6 +7,7 @@ import { getBscScanLink } from 'utils'
 import { formatNumber } from 'utils/formatBalance'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
 import { ModalInner, VotingBoxBorder, VotingBoxCardInner } from './styles'
+import {useWeb3React} from "@web3-react/core";
 
 const StyledLinkExternal = styled(LinkExternal)`
   display: inline-flex;
@@ -75,6 +76,7 @@ const DetailsView: React.FC<React.PropsWithChildren<DetailsViewProps>> = ({
   block,
 }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const blockTimestamp = useCurrentBlockTimestamp()
 
   const isBoostingExpired = useMemo(() => {
@@ -126,7 +128,7 @@ const DetailsView: React.FC<React.PropsWithChildren<DetailsViewProps>> = ({
       </VotingBoxBorder>
       <Text color="secondary" textTransform="uppercase" mb="4px" bold fontSize="14px">
         {t('Your voting power at block')}
-        <StyledLinkExternal href={getBscScanLink(block, 'block')} ml="8px">
+        <StyledLinkExternal href={getBscScanLink(block, 'block', chainId)} ml="8px">
           {block}
         </StyledLinkExternal>
       </Text>

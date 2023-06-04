@@ -39,6 +39,7 @@ import { useWatchlistTokens } from 'state/user/hooks'
 import { ONE_HOUR_SECONDS } from 'config/constants/info'
 import { useTranslation } from '@pancakeswap/localization'
 import ChartCard from 'views/Info/components/InfoCharts/ChartCard'
+import {useWeb3React} from "@web3-react/core";
 
 const ContentLayout = styled.div`
   margin-top: 16px;
@@ -65,6 +66,7 @@ const DEFAULT_TIME_WINDOW: Duration = { weeks: 1 }
 const TokenPage: React.FC<React.PropsWithChildren<{ routeAddress: string }>> = ({ routeAddress }) => {
   const { isXs, isSm } = useMatchBreakpointsContext()
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
 
   // In case somebody pastes checksummed address into url (since GraphQL expects lowercase address)
   const address = routeAddress.toLowerCase()
@@ -129,8 +131,8 @@ const TokenPage: React.FC<React.PropsWithChildren<{ routeAddress: string }>> = (
                 </Flex>
               </Breadcrumbs>
               <Flex justifyContent={[null, null, 'flex-end']} mt={['8px', '8px', 0]}>
-                <LinkExternal mr="8px" color="primary" href={getBscScanLink(address, 'address')}>
-                  {t('View on BscScan')}
+                <LinkExternal mr="8px" color="primary" href={getBscScanLink(address, 'address', chainId)}>
+                  {t('View on %scan%', {scan: getScan(chainId)})}
                 </LinkExternal>
                 {cmcLink && (
                   <StyledCMCLink href={cmcLink} rel="noopener noreferrer nofollow" target="_blank">

@@ -14,7 +14,7 @@ import {
 import { parseUnits } from '@ethersproject/units'
 import { useTranslation } from '@pancakeswap/localization'
 import styled from 'styled-components'
-import { useGetBnbBalance } from 'hooks/useTokenBalance'
+import { useGetEthBalance } from 'hooks/useTokenBalance'
 import { FetchStatus } from 'config/constants/types'
 import WalletInfo from './WalletInfo'
 import WalletTransactions from './WalletTransactions'
@@ -48,7 +48,7 @@ const WalletModal: React.FC<React.PropsWithChildren<WalletModalProps>> = ({
 }) => {
   const [view, setView] = useState(initialView)
   const { t } = useTranslation()
-  const { balance, fetchStatus } = useGetBnbBalance()
+  const { balance, fetchStatus } = useGetEthBalance()
   const hasLowBnbBalance = fetchStatus === FetchStatus.Fetched && balance.lte(LOW_BNB_BALANCE)
 
   const handleClick = (newIndex: number) => {

@@ -13,6 +13,7 @@ import { BIG_ZERO } from 'utils/bigNumber'
 import { getPoolBlockInfo } from 'views/Pools/helpers'
 import MaxStakeRow from './MaxStakeRow'
 import { AprInfo, DurationAvg, PerformanceFee, TotalLocked, TotalStaked } from './Stat'
+import useActiveWeb3React from "../../../hooks/useActiveWeb3React";
 
 interface ExpandedFooterProps {
   pool: DeserializedPool
@@ -28,6 +29,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
   alignLinksToRight = true,
 }) => {
   const { t } = useTranslation()
+  const { chainId } = useActiveWeb3React()
   const currentBlock = useCurrentBlock()
 
   const {
@@ -97,7 +99,7 @@ const PoolStatsInfo: React.FC<React.PropsWithChildren<ExpandedFooterProps>> = ({
           <Text small>{hasPoolStarted ? t('Ends in') : t('Starts in')}:</Text>
           {blocksRemaining || blocksUntilStart ? (
             <Flex alignItems="center">
-              <Link external href={getBscScanLink(hasPoolStarted ? endBlock : startBlock, 'countdown')}>
+              <Link external href={getBscScanLink(hasPoolStarted ? endBlock : startBlock, 'countdown', chainId)}>
                 <Balance small value={blocksToDisplay} decimals={0} color="primary" />
                 <Text small ml="4px" color="primary" textTransform="lowercase">
                   {t('Blocks')}

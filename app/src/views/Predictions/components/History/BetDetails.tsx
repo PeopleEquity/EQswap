@@ -7,6 +7,7 @@ import { Result } from 'state/predictions/helpers'
 import { PayoutRow, RoundResultHistory } from '../RoundResult'
 import BetResult from './BetResult'
 import { getMultiplier } from './helpers'
+import {useWeb3React} from "@web3-react/core";
 
 interface BetDetailsProps {
   bet: Bet
@@ -21,6 +22,7 @@ const StyledBetDetails = styled.div`
 
 const BetDetails: React.FC<React.PropsWithChildren<BetDetailsProps>> = ({ bet, result }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const { totalAmount, bullAmount, bearAmount } = bet.round
   const bullMultiplier = getMultiplier(totalAmount, bullAmount)
   const bearMultiplier = getMultiplier(totalAmount, bearAmount)
@@ -43,7 +45,7 @@ const BetDetails: React.FC<React.PropsWithChildren<BetDetailsProps>> = ({ bet, r
       {bet.round.lockBlock && (
         <Flex alignItems="center" justifyContent="space-between" mb="8px">
           <Text>{t('Opening Block')}</Text>
-          <Link href={getBscScanLink(bet.round.lockBlock, 'block')} external>
+          <Link href={getBscScanLink(bet.round.lockBlock, 'block', chainId)} external>
             {bet.round.lockBlock}
           </Link>
         </Flex>
@@ -51,7 +53,7 @@ const BetDetails: React.FC<React.PropsWithChildren<BetDetailsProps>> = ({ bet, r
       {bet.round.closeBlock && (
         <Flex alignItems="center" justifyContent="space-between">
           <Text>{t('Closing Block')}</Text>
-          <Link href={getBscScanLink(bet.round.closeBlock, 'block')} external>
+          <Link href={getBscScanLink(bet.round.closeBlock, 'block', chainId)} external>
             {bet.round.closeBlock}
           </Link>
         </Flex>

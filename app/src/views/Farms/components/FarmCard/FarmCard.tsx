@@ -13,6 +13,7 @@ import CardHeading from './CardHeading'
 import { FarmWithStakedValue } from '../types'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
+import {useWeb3React} from "@web3-react/core";
 
 const StyledCard = styled(Card)`
   align-self: baseline;
@@ -52,6 +53,8 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
   account,
 }) => {
   const { t } = useTranslation()
+
+  const { chainId } = useWeb3React()
 
   const [showExpandableSection, setShowExpandableSection] = useState(false)
 
@@ -125,7 +128,7 @@ const FarmCard: React.FC<React.PropsWithChildren<FarmCardProps>> = ({
         {showExpandableSection && (
           <DetailsSection
             removed={removed}
-            bscScanAddress={getBscScanLink(lpAddress, 'address')}
+            bscScanAddress={getBscScanLink(lpAddress, 'address', chainId)}
             infoAddress={`/info/pool/${lpAddress}`}
             totalValueFormatted={totalValueFormatted}
             lpLabel={lpLabel}

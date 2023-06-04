@@ -6,27 +6,30 @@ import { BAD_SRCS } from 'components/Logo/Logo'
 import { BASE_BSC_SCAN_URLS } from 'config'
 import { BSC_RPC_URLS, BSC_TESTNET_RPC_URLS, ARB_TESTNET_RPC_URLS } from '../config/constants/rpc'
 
-const NETWORK_CONFIG = {
+export const NETWORK_CONFIG = {
   [ChainId.BSC]: {
     name: 'BNB Smart Chain Mainnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC],
     rpcUrls: BSC_RPC_URLS,
     tokenName: 'BNB',
-    symbol: 'bnb'
+    symbol: 'bnb',
+    scan: 'BSCScan'
   },
   [ChainId.BSC_TESTNET]: {
     name: 'BNB Smart Chain Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC_TESTNET],
     rpcUrls: BSC_TESTNET_RPC_URLS,
     tokenName: 'BNB',
-    symbol: 'bnb'
+    symbol: 'bnb',
+    scan: 'BSCTestScan'
   },
   [ChainId.ARB_TESTNET]: {
     name: 'ARB Smart Chain Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.ARB_TESTNET],
     rpcUrls: ARB_TESTNET_RPC_URLS,
     tokenName: 'ETH',
-    symbol: 'eth'
+    symbol: 'eth',
+    scan: 'ARBScan'
   },
 }
 
@@ -110,6 +113,14 @@ export const registerToken = async (
   })
 
   return tokenAdded
+}
+
+export const getBaseToken = (chainId) => {
+  return NETWORK_CONFIG[String(chainId)]?.tokenName
+}
+
+export const getScan = (chainId) => {
+  return NETWORK_CONFIG[String(chainId)]?.scan
 }
 
 export const canRegisterToken = () =>

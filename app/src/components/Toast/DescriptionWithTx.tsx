@@ -18,7 +18,7 @@ const DescriptionWithTx: React.FC<React.PropsWithChildren<DescriptionWithTxProps
       {typeof children === 'string' ? <Text as="p">{children}</Text> : children}
       {txHash && (
         <Link external href={getBscScanLink(txHash, 'transaction', chainId)}>
-          {t('View on BscScan')}: {truncateHash(txHash, 8, 0)}
+          {t('View on %scan%', {scan: getScan(chainId)})}: {truncateHash(txHash, 8, 0)}
         </Link>
       )}
     </>

@@ -29,6 +29,11 @@ const Subtitle: React.FC<React.PropsWithChildren> = ({ children }) => {
   )
 }
 
+const TextCenter = styled.div`
+  text-align: center;
+  margin-bottom: 4px;
+`
+
 const StyledA = styled.a`
   font-size: 14px;
   font-weight: bold;
@@ -211,19 +216,20 @@ export default function AddWhiteList() {
               {t('whiteListText')}
             </Text> */}
             <Text color="dark" fontSize="12px">
+              <TextCenter>{t('liquidityTitle')}</TextCenter>
               {t('liquidityText1')}
               <br />
               {t('liquidityText2')}
               <br />
               {t('liquidityText3')}
               <br />
-              {t('liquidityText4')}
-              <br />
-              {t('liquidityText5')}
-              <br />
               {
                 isMore ?
                     <>
+                      {t('liquidityText4')}
+                      <br />
+                      {t('liquidityText5')}
+                      <br />
                       {t('liquidityText6')}
                       <br />
                       {t('liquidityText7')}

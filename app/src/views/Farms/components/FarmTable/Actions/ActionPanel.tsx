@@ -11,6 +11,7 @@ import StakedAction from './StakedAction'
 import Apr, { AprProps } from '../Apr'
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
+import {useWeb3React} from "@web3-react/core";
 
 export interface ActionPanelProps {
   apr: AprProps
@@ -111,6 +112,8 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
 }) => {
   const farm = details
 
+  const { chainId } = useWeb3React()
+
   const { isDesktop } = useMatchBreakpointsContext()
 
   const {
@@ -125,7 +128,7 @@ const ActionPanel: React.FunctionComponent<React.PropsWithChildren<ActionPanelPr
     tokenAddress: token.address,
   })
   const lpAddress = getAddress(farm.lpAddresses)
-  const bsc = getBscScanLink(lpAddress, 'address')
+  const bsc = getBscScanLink(lpAddress, 'address', chainId)
   const info = `/info/pool/${lpAddress}`
 
   return (

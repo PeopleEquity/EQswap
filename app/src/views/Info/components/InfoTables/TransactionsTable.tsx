@@ -11,6 +11,7 @@ import { Transaction, TransactionType } from 'state/info/types'
 import { ITEMS_PER_INFO_TABLE_PAGE } from 'config/constants/info'
 import { useTranslation } from '@pancakeswap/localization'
 import { ClickableColumnHeader, TableWrapper, PageButtons, Arrow, Break } from './shared'
+import {useWeb3React} from "@web3-react/core";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -94,6 +95,7 @@ const TableLoader: React.FC<React.PropsWithChildren> = () => {
 
 const DataRow: React.FC<React.PropsWithChildren<{ transaction: Transaction }>> = ({ transaction }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const abs0 = Math.abs(transaction.amountToken0)
   const abs1 = Math.abs(transaction.amountToken1)
   const outputTokenSymbol = transaction.amountToken0 < 0 ? transaction.token0Symbol : transaction.token1Symbol
@@ -101,7 +103,7 @@ const DataRow: React.FC<React.PropsWithChildren<{ transaction: Transaction }>> =
 
   return (
     <ResponsiveGrid>
-      <LinkExternal href={getBscScanLink(transaction.hash, 'transaction')}>
+      <LinkExternal href={getBscScanLink(transaction.hash, 'transaction', chainId)}>
         <Text>
           {transaction.type === TransactionType.MINT
             ? t('Add %token0% and %token1%', { token0: transaction.token0Symbol, token1: transaction.token1Symbol })
@@ -117,7 +119,7 @@ const DataRow: React.FC<React.PropsWithChildren<{ transaction: Transaction }>> =
       <Text>
         <Text>{`${formatAmount(abs1)} ${transaction.token1Symbol}`}</Text>
       </Text>
-      <LinkExternal href={getBscScanLink(transaction.sender, 'address')}>
+      <LinkExternal href={getBscScanLink(transaction.sender, 'address', chainId)}>
         {truncateHash(transaction.sender)}
       </LinkExternal>
       <Text>{formatDistanceToNowStrict(parseInt(transaction.timestamp, 10) * 1000)}</Text>

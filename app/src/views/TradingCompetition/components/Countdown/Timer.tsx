@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import { Flex, Heading, Text, Link, useTooltip } from '@pancakeswap/uikit'
 import { useTranslation, ContextApi } from '@pancakeswap/localization'
 import { getBscScanLink } from 'utils'
+import {useWeb3React} from "@web3-react/core";
 
 export interface TimerProps {
   prefix?: string
@@ -60,13 +61,13 @@ const DefaultBodyTextComponent = ({ children, ...props }) => (
   </Text>
 )
 
-const TooltipContent = ({ blockNumber, t }: { blockNumber: number; t: ContextApi['t'] }): JSX.Element => (
+const TooltipContent = ({ blockNumber, t, chainId }: { blockNumber: number; chainId: number; t: ContextApi['t'] }): JSX.Element => (
   <>
     <Text color="body" mb="10px" fontWeight="600">
       {t('Block %num%', { num: blockNumber })}
     </Text>
-    <Link external href={getBscScanLink(blockNumber, 'block')}>
-      {t('View on BscScan')}
+    <Link external href={getBscScanLink(blockNumber, 'block', chainId)}>
+      {t('View on %scan%', {scan: getScan(chainId)})}
     </Link>
   </>
 )
@@ -83,7 +84,8 @@ const Wrapper: React.FC<React.PropsWithChildren<TimerProps>> = ({
   BodyTextComponent = DefaultBodyTextComponent,
 }) => {
   const { t } = useTranslation()
-  const { targetRef, tooltip, tooltipVisible } = useTooltip(<TooltipContent blockNumber={blockNumber} t={t} />, {
+  const { chainId } = useWeb3React()
+  const { targetRef, tooltip, tooltipVisible } = useTooltip(<TooltipContent blockNumber={blockNumber} chainId={chainId} t={t} />, {
     placement: 'bottom',
   })
   const shouldDisplayTooltip = showTooltip && tooltipVisible

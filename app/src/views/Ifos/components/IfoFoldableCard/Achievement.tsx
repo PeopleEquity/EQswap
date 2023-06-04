@@ -20,6 +20,7 @@ import { BIG_TEN } from 'utils/bigNumber'
 import { getBscScanLink } from 'utils'
 import { formatBigNumber } from 'utils/formatBalance'
 import { FlexGap } from 'components/Layout/Flex'
+import {useWeb3React} from "@web3-react/core";
 
 const SmartContractIcon: React.FC<React.PropsWithChildren<SvgProps>> = (props) => {
   return (
@@ -86,6 +87,7 @@ const InlinePrize = styled(Flex)`
 
 const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicIfoData }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const tokenName = ifo.token.symbol?.toLowerCase()
   const projectUrl = ifo.token.projectLink
   const campaignTitle = ifo.name
@@ -129,7 +131,7 @@ const IfoAchievement: React.FC<React.PropsWithChildren<Props>> = ({ ifo, publicI
             <Link external href={ifo.articleUrl}>
               <ProposalIcon color="textSubtle" />
             </Link>
-            <Link external href={getBscScanLink(ifo.address, 'address')}>
+            <Link external href={getBscScanLink(ifo.address, 'address', chainId)}>
               <SmartContractIcon color="textSubtle" />
             </Link>
             {ifo.twitterUrl && (

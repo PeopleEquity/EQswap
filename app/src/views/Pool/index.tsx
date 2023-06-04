@@ -21,6 +21,11 @@ const StyledButton = styled(Button)`
   border-radius: 28px;
 `
 
+const TextCenter = styled.div`
+  text-align: center;
+  margin-bottom: 4px;
+`
+
 export default function Pool() {
   const { account } = useWeb3React()
   const { t } = useTranslation()
@@ -102,19 +107,20 @@ export default function Pool() {
       <AppBody>
         <AppHeader title={t('Your Liquidity')} subtitle="" />
         <Text color={theme.colors.contrast} p={[0, 17]} fontSize="12px">
+          <TextCenter>{t('liquidityTitle')}</TextCenter>
           {t('liquidityText1')}
           <br />
           {t('liquidityText2')}
           <br />
           {t('liquidityText3')}
           <br />
-          {t('liquidityText4')}
-          <br />
-          {t('liquidityText5')}
-          <br />
           {
             isMore ?
                 <>
+                  {t('liquidityText4')}
+                  <br />
+                  {t('liquidityText5')}
+                  <br />
                   {t('liquidityText6')}
                   <br />
                   {t('liquidityText7')}
@@ -188,6 +194,7 @@ export default function Pool() {
               color: '#111526',
             }}
           >
+            <TextCenter>{t('liquidityTitle')}</TextCenter>
             {t('liquidityText1')}
             <br />
             {t('liquidityText2')}
@@ -196,11 +203,11 @@ export default function Pool() {
             <br />
             {t('liquidityText4')}
             <br />
-            {t('liquidityText5')}
-            <br />
             {
               isMore ?
                   <>
+                    {t('liquidityText5')}
+                    <br />
                     {t('liquidityText6')}
                     <br />
                     {t('liquidityText7')}

@@ -8,6 +8,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { useStatModalProps } from 'state/predictions/hooks'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 import WalletStatsModal from '../WalletStatsModal'
+import {useWeb3React} from "@web3-react/core";
 
 interface ResultAvatarProps extends FlexProps {
   user: PredictionUser
@@ -34,6 +35,7 @@ const UsernameWrapper = styled(Box)`
 
 const ResultAvatar: React.FC<React.PropsWithChildren<ResultAvatarProps>> = ({ user, ...props }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const { profile } = useProfileForAddress(user.id)
   const { result, address, leaderboardLoadingState } = useStatModalProps(user.id)
   const { token, api } = useConfig()
@@ -71,8 +73,8 @@ const ResultAvatar: React.FC<React.PropsWithChildren<ResultAvatarProps>> = ({ us
       options={{ placement: 'bottom-start' }}
     >
       <SubMenuItem onClick={onPresentWalletStatsModal}>{t('View Stats')}</SubMenuItem>
-      <SubMenuItem as={Link} href={getBscScanLink(user.id, 'address')} bold={false} color="text" external>
-        {t('View on BscScan')}
+      <SubMenuItem as={Link} href={getBscScanLink(user.id, 'address', chainId)} bold={false} color="text" external>
+        {t('View on %scan%', {scan: getScan(chainId)})}
       </SubMenuItem>
     </SubMenu>
   )

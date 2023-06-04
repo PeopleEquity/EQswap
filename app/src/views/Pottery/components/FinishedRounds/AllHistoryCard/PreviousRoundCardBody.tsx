@@ -12,6 +12,7 @@ import Divider from 'components/Divider'
 import { getDrawnDate } from 'views/Lottery/helpers'
 import { getBscScanLink } from 'utils'
 import Winner from './Winner'
+import useActiveWeb3React from "../../../../../hooks/useActiveWeb3React";
 
 const StyledCardBody = styled(CardBody)`
   position: relative;
@@ -58,6 +59,7 @@ const PreviousRoundCardBody: React.FC<React.PropsWithChildren<PreviousRoundCardB
     t,
     currentLanguage: { locale },
   } = useTranslation()
+  const { chainId } = useActiveWeb3React()
   const { isFetched, roundId, prizePot, totalPlayers, txid, winners, lockDate } = finishedRoundInfo
   const cakePriceBusd = usePriceCakeBusd()
 
@@ -125,9 +127,9 @@ const PreviousRoundCardBody: React.FC<React.PropsWithChildren<PreviousRoundCardB
           </Flex>
           <LinkExternal
             m={['10px auto auto auto', '10px auto auto auto', 'auto 0 0 auto']}
-            href={getBscScanLink(txid, 'transaction')}
+            href={getBscScanLink(txid, 'transaction', chainId)}
           >
-            {t('View on BscScan')}
+            {t('View on %scan%', {scan: getScan(chainId)})}
           </LinkExternal>
         </Flex>
       </Flex>

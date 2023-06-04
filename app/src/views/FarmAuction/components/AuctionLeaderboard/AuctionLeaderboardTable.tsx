@@ -21,6 +21,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { usePriceCakeBusd } from 'state/farms/hooks'
 import { Bidder } from 'config/constants/types'
 import WhitelistedBiddersModal from '../WhitelistedBiddersModal'
+import {useWeb3React} from "@web3-react/core";
 
 const LeaderboardContainer = styled.div`
   display: grid;
@@ -50,6 +51,7 @@ const LeaderboardRow: React.FC<React.PropsWithChildren<LeaderboardRowProps>> = (
   isMobile,
 }) => {
   const { t } = useTranslation()
+  const { chainId } = useWeb3React()
   const { isTopPosition, position, samePositionAsAbove, farmName, tokenName, amount, projectSite, lpAddress, account } =
     bidder
   return (
@@ -103,7 +105,7 @@ const LeaderboardRow: React.FC<React.PropsWithChildren<LeaderboardRowProps>> = (
             </SubMenuItem>
           )}
           {account && (
-            <SubMenuItem as={LinkExternal} href={getBscScanLink(account, 'address')} bold={false} color="text">
+            <SubMenuItem as={LinkExternal} href={getBscScanLink(account, 'address', chainId)} bold={false} color="text">
               {t('Bidder Address')}
             </SubMenuItem>
           )}

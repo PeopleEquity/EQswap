@@ -13,6 +13,11 @@ interface AddWhiteListModalProps {
   disable: boolean
 }
 
+const TextCenter = styled.div`
+  text-align: center;
+  margin-bottom: 4px;
+`
+
 const StyledButton = styled(Button)`
   background: linear-gradient(90deg, #EB3DFF 0%, #5C53D3 100%);
   border-radius: 28px;
@@ -78,19 +83,20 @@ const AddWhiteListModal: React.FC<
           <StyledTitle>{title}</StyledTitle>
           {/* <StyledText>{t('whiteListText')}</StyledText> */}
           <StyledText>
+            <TextCenter>{t('liquidityTitle')}</TextCenter>
             {t('liquidityText1')}
             <br />
             {t('liquidityText2')}
             <br />
             {t('liquidityText3')}
             <br />
-            {t('liquidityText4')}
-            <br />
-            {t('liquidityText5')}
-            <br />
             {
               isMore ?
                   <>
+                    {t('liquidityText4')}
+                    <br />
+                    {t('liquidityText5')}
+                    <br />
                     {t('liquidityText6')}
                     <br />
                     {t('liquidityText7')}
