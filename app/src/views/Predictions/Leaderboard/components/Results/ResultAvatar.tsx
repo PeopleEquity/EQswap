@@ -7,8 +7,8 @@ import truncateHash from 'utils/truncateHash'
 import { useTranslation } from '@pancakeswap/localization'
 import { useStatModalProps } from 'state/predictions/hooks'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
+import { useWeb3React } from "@web3-react/core";
 import WalletStatsModal from '../WalletStatsModal'
-import {useWeb3React} from "@web3-react/core";
 
 interface ResultAvatarProps extends FlexProps {
   user: PredictionUser

@@ -20,10 +20,10 @@ import { getBscScanLink } from 'utils'
 import truncateHash from 'utils/truncateHash'
 import { useTranslation } from '@pancakeswap/localization'
 import { useStatModalProps } from 'state/predictions/hooks'
+import { useWeb3React } from "@web3-react/core";
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 import WalletStatsModal from '../WalletStatsModal'
 import { NetWinningsRow, Row } from './styles'
-import {useWeb3React} from "@web3-react/core";
 
 interface RankingCardProps {
   rank: 1 | 2 | 3

@@ -4,10 +4,10 @@ import { useTranslation } from '@pancakeswap/localization'
 import { getBscScanLink } from 'utils'
 import { Flex, Text, Link, Heading } from '@pancakeswap/uikit'
 import { Result } from 'state/predictions/helpers'
+import { useWeb3React } from "@web3-react/core";
 import { PayoutRow, RoundResultHistory } from '../RoundResult'
 import BetResult from './BetResult'
 import { getMultiplier } from './helpers'
-import {useWeb3React} from "@web3-react/core";
 
 interface BetDetailsProps {
   bet: Bet

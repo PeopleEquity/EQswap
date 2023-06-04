@@ -6,8 +6,8 @@ import styled from 'styled-components'
 import { getBscScanLink } from 'utils'
 import { formatNumber } from 'utils/formatBalance'
 import useCurrentBlockTimestamp from 'hooks/useCurrentBlockTimestamp'
+import { useWeb3React } from "@web3-react/core";
 import { ModalInner, VotingBoxBorder, VotingBoxCardInner } from './styles'
-import {useWeb3React} from "@web3-react/core";
 
 const StyledLinkExternal = styled(LinkExternal)`
   display: inline-flex;

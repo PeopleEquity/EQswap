@@ -5,9 +5,9 @@ import { Proposal } from 'state/types'
 import { useTranslation } from '@pancakeswap/localization'
 import { getBscScanLink } from 'utils'
 import truncateHash from 'utils/truncateHash'
+import { useWeb3React } from "@web3-react/core";
 import { IPFS_GATEWAY } from '../config'
 import { ProposalStateTag } from '../components/Proposals/tags'
-import {useWeb3React} from "@web3-react/core";
 
 interface DetailsProps {
   proposal: Proposal

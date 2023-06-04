@@ -10,8 +10,8 @@ import truncateHash from 'utils/truncateHash'
 import { Transaction, TransactionType } from 'state/info/types'
 import { ITEMS_PER_INFO_TABLE_PAGE } from 'config/constants/info'
 import { useTranslation } from '@pancakeswap/localization'
+import { useWeb3React } from "@web3-react/core";
 import { ClickableColumnHeader, TableWrapper, PageButtons, Arrow, Break } from './shared'
-import {useWeb3React} from "@web3-react/core";
 
 const Wrapper = styled.div`
   width: 100%;

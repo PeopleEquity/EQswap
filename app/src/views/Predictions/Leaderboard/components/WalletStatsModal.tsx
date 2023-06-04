@@ -24,10 +24,10 @@ import { Token } from '@pancakeswap/sdk'
 import { useTranslation } from '@pancakeswap/localization'
 import { FetchStatus } from 'config/constants/types'
 import { PredictionUser } from 'state/types'
+import { useWeb3React } from "@web3-react/core";
 import { NetWinningsView } from './Results/styles'
 import MobileBetsTable from './MobileBetsTable'
 import DesktopBetsTable from './Results/DesktopBetsTable'
-import {useWeb3React} from "@web3-react/core";
 
 interface WalletStatsModalProps extends InjectedModalProps {
   account?: string

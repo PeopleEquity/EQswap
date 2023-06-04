@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Card, Flex, Text, Skeleton } from '@pancakeswap/uikit'
 import { getBscScanLink } from 'utils'
 import { useTranslation } from '@pancakeswap/localization'
+import { useWeb3React } from "@web3-react/core";
 import ExpandableSectionButton from 'components/ExpandableSectionButton'
 import { BASE_ADD_LIQUIDITY_URL } from 'config'
 import { getAddress } from 'utils/addressHelpers'
@@ -13,7 +14,6 @@ import CardHeading from './CardHeading'
 import { FarmWithStakedValue } from '../types'
 import CardActionsContainer from './CardActionsContainer'
 import ApyButton from './ApyButton'
-import {useWeb3React} from "@web3-react/core";
 
 const StyledCard = styled(Card)`
   align-self: baseline;

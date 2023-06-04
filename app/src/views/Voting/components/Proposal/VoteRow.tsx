@@ -3,10 +3,10 @@ import truncateHash from 'utils/truncateHash'
 import { getBscScanLink } from 'utils'
 import { useTranslation } from '@pancakeswap/localization'
 import { Vote } from 'state/types'
+import { useWeb3React } from "@web3-react/core";
 import { IPFS_GATEWAY } from '../../config'
 import TextEllipsis from '../TextEllipsis'
 import Row, { AddressColumn, ChoiceColumn, VotingPowerColumn } from './Row'
-import {useWeb3React} from "@web3-react/core";
 
 interface VoteRowProps {
   vote: Vote

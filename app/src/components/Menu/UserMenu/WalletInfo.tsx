@@ -8,8 +8,8 @@ import useTokenBalance, { useGetEthBalance } from 'hooks/useTokenBalance'
 
 import { getBscScanLink } from 'utils'
 import { formatBigNumber, getFullDisplayBalance } from 'utils/formatBalance'
-import CopyAddress from './CopyAddress'
 import { getBaseToken, getScan } from 'utils/wallet'
+import CopyAddress from './CopyAddress'
 
 interface WalletInfoProps {
   hasLowBnbBalance: boolean

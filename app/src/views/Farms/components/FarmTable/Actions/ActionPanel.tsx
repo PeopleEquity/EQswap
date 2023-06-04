@@ -4,6 +4,7 @@ import { LinkExternal, Text, useMatchBreakpointsContext } from '@pancakeswap/uik
 import getLiquidityUrlPathParts from 'utils/getLiquidityUrlPathParts'
 import { getAddress } from 'utils/addressHelpers'
 import { getBscScanLink } from 'utils'
+import { useWeb3React } from "@web3-react/core";
 import { FarmWithStakedValue } from '../../types'
 
 import HarvestAction from './HarvestAction'
@@ -11,7 +12,6 @@ import StakedAction from './StakedAction'
 import Apr, { AprProps } from '../Apr'
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
-import {useWeb3React} from "@web3-react/core";
 
 export interface ActionPanelProps {
   apr: AprProps

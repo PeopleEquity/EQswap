@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
+import { useWeb3React } from "@web3-react/core";
 import {
   Text,
   Flex,
@@ -21,7 +22,6 @@ import { useTranslation } from '@pancakeswap/localization'
 import { usePriceCakeBusd } from 'state/farms/hooks'
 import { Bidder } from 'config/constants/types'
 import WhitelistedBiddersModal from '../WhitelistedBiddersModal'
-import {useWeb3React} from "@web3-react/core";
 
 const LeaderboardContainer = styled.div`
   display: grid;
