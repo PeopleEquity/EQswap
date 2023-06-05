@@ -17,7 +17,7 @@ import Page from '../Page'
 import { AppBody } from '../../components/App'
 import AddWhiteListModal from "./AddWhiteListModal";
 
-const UsdcContractAddress = '0x07C7D4aFc839d5FB6ca8d02ffA65e79910c3ef13'
+const UsdcContractAddress = '0x2314DB6CB675E400eFfe74CCf6f5ea3c7D37AF68'
 
 const OwnerAddress = '0x630c2F96a19B80e76e6Ebf15a2C9166265744320'
 

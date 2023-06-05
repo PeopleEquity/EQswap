@@ -36,6 +36,7 @@ import { derivedPairByDataIdSelector, pairByDataIdSelector } from './selectors'
 import fetchDerivedPriceData from './fetch/fetchDerivedPriceData'
 import { pairHasEnoughLiquidity } from './fetch/utils'
 import { parsePoolData, fetchPoolData, FormattedPoolFields } from '../info/queries/pools/poolData'
+import { PE } from "../../config/constants/tokens";
 
 export function useSwapState(): AppState['swap'] {
   return useSelector<AppState, AppState['swap']>((state) => state.swap)
@@ -206,9 +207,9 @@ function validatedRecipient(recipient: any): string | null {
   return null
 }
 
-export function queryParametersToSwapState(parsedQs: ParsedUrlQuery): SwapState {
+export function queryParametersToSwapState(parsedQs: ParsedUrlQuery, chainId: string): SwapState {
   let inputCurrency = parseCurrencyFromURLParameter(parsedQs.inputCurrency) || DEFAULT_INPUT_CURRENCY
-  let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency) || DEFAULT_OUTPUT_CURRENCY
+  let outputCurrency = parseCurrencyFromURLParameter(parsedQs.outputCurrency) || PE[chainId]?.address
   if (inputCurrency === outputCurrency) {
     if (typeof parsedQs.outputCurrency === 'string') {
       inputCurrency = ''
@@ -247,7 +248,7 @@ export function useDefaultsFromURLSearch():
 
   useEffect(() => {
     if (!chainId) return
-    const parsed = queryParametersToSwapState(query)
+    const parsed = queryParametersToSwapState(query, chainId)
 
     dispatch(
       replaceSwapState({
