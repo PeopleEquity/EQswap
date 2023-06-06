@@ -1845,5 +1845,9 @@
   "dcsTrade": "Ups and Downs",
   "dcsName": "Project",
   "dcsGains": "Gains",
-  "dcs%Chg": "%Chg"
+  "dcs%Chg": "%Chg",
+  "airdop_click_claim_test_coins": "Click to claim test coins",
+  "airdop_claim_test_coins": "Claim Test Coins",
+  "airdop_can_claim": "You can claim 10,000 USDT today (test coins)",
+  "airdop_n_can_claim": "Received today, please come back in 24 hours"
 }

@@ -88,20 +88,6 @@ const ConnectModal: React.FC<React.PropsWithChildren<Props>> = ({
             {!showMore && <MoreWalletCard t={t} onClick={() => setShowMore(true)} />}
           </Grid>
         </WalletWrapper>
-        <Box p="24px">
-          <Text textAlign="center" color="textSubtle" as="p" mb="16px">
-            {t("Haven’t got a crypto wallet yet?")}
-          </Text>
-          <Button
-            as="a"
-            href="https://docs.pancakeswap.finance/get-started/connection-guide"
-            variant="subtle"
-            width="100%"
-            {...EXTERNAL_LINK_PROPS}
-          >
-            {t("Learn How to Connect")}
-          </Button>
-        </Box>
       </ModalBody>
     </ModalContainer>
   );

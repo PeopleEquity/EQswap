@@ -639,7 +639,7 @@ export default function Swap() {
           </StyledSwapContainer>
         </Flex>
       </Flex>
-      {/* <Airdop /> */}
+      <Airdop />
     </Page>
   )
 }

@@ -9,6 +9,11 @@ export const ROUTER_ADDRESS = {
   [ChainId.ARB_TESTNET]: '0xa373C0460cD7c1A355E07a004c8f8651aDE8a3d3'
 }
 
+export const AIRDOP_ADDRESS = {
+  [ChainId.BSC_TESTNET]: '0xC568A77878EB50C61b807F4E26437b6B0B6d3B02',
+  [ChainId.ARB_TESTNET]: '0x6860c458e3854C86CeD18eCDBC299749F29629b3'
+}
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BSC]: [

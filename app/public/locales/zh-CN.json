@@ -1845,5 +1845,9 @@
   "dcsTrade": "项目一览",
   "dcsName": "代币",
   "dcsGains": "收入",
-  "dcs%Chg": "%今日涨跌"
+  "dcs%Chg": "%今日涨跌",
+  "airdop_click_claim_test_coins": "点击领取测试币",
+  "airdop_claim_test_coins": "领取测试币",
+  "airdop_can_claim": "今日可领取10000个USDT（测试币）",
+  "airdop_n_can_claim": "今日已领取，请24小时后再来"
 }
