@@ -99,7 +99,6 @@ const useDefaultAmm = ({
     }
     if (decimalExponent0 === 100 && decimalExponent1 === 100) {
       dispatch(changeAmmType(AmmType.Default))
-      return
     }
   })
 
