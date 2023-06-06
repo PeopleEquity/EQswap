@@ -63,6 +63,7 @@ import IPancakePairABI from '../config/abi/IPancakePair.json'
 import { ERC20_BYTES32_ABI } from '../config/abi/erc20'
 import ERC20_ABI from '../config/abi/erc20.json'
 import WETH_ABI from '../config/abi/weth.json'
+import AirdopABI from '../config/abi/airdop_metadata.json'
 import multiCallAbi from '../config/abi/Multicall.json'
 import { getContract, getProviderOrSigner } from '../utils'
 
@@ -370,6 +371,10 @@ export function useBytes32TokenContract(tokenAddress?: string, withSignerIfPossi
 
 export function usePairContract(pairAddress?: string, withSignerIfPossible?: boolean): IPancakePair | null {
   return useContract(pairAddress, IPancakePairABI, withSignerIfPossible)
+}
+
+export function useAirdopContract(pairAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(pairAddress, AirdopABI, withSignerIfPossible)
 }
 
 export function useMulticallContract() {

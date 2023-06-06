@@ -24,6 +24,7 @@ import { useWeb3React } from "@web3-react/core";
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 import WalletStatsModal from '../WalletStatsModal'
 import { NetWinningsRow, Row } from './styles'
+import { getScan } from '../../../../../utils/wallet'
 
 interface RankingCardProps {
   rank: 1 | 2 | 3

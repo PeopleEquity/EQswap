@@ -7,6 +7,7 @@ import useActiveWeb3React from '../../../hooks/useActiveWeb3React'
 import { AutoColumn } from '../../../components/Layout/Column'
 import { RowBetween } from '../../../components/Layout/Row'
 import { getBscScanLink } from '../../../utils'
+import { getScan } from '../../../utils/wallet'
 
 const InputPanel = styled.div`
   display: flex;

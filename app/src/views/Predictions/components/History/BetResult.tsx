@@ -19,6 +19,7 @@ import { formatBnb, getNetPayout } from './helpers'
 import CollectWinningsButton from '../CollectWinningsButton'
 import PositionTag from '../PositionTag'
 import ReclaimPositionButton from '../ReclaimPositionButton'
+import { getScan } from '../../../../utils/wallet'
 
 interface BetResultProps {
   bet: Bet

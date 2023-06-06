@@ -3,6 +3,7 @@ import { Flex, Heading, Text, Link, useTooltip } from '@pancakeswap/uikit'
 import { useTranslation, ContextApi } from '@pancakeswap/localization'
 import { getBscScanLink } from 'utils'
 import {useWeb3React} from "@web3-react/core";
+import { getScan } from '../../../../utils/wallet'
 
 export interface TimerProps {
   prefix?: string

@@ -14,6 +14,7 @@ import {
   Skeleton,
   useMatchBreakpointsContext,
 } from '@pancakeswap/uikit'
+import Airdop from 'components/Airdop'
 import { useIsTransactionUnsupported } from 'hooks/Trades'
 import UnsupportedCurrencyFooter from 'components/UnsupportedCurrencyFooter'
 import { useRouter } from 'next/router'
@@ -638,6 +639,7 @@ export default function Swap() {
           </StyledSwapContainer>
         </Flex>
       </Flex>
+      {/* <Airdop /> */}
     </Page>
   )
 }

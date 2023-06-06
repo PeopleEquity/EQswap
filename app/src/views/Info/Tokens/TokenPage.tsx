@@ -40,6 +40,7 @@ import { ONE_HOUR_SECONDS } from 'config/constants/info'
 import { useTranslation } from '@pancakeswap/localization'
 import ChartCard from 'views/Info/components/InfoCharts/ChartCard'
 import {useWeb3React} from "@web3-react/core";
+import { getScan } from '../../../utils/wallet'
 
 const ContentLayout = styled.div`
   margin-top: 16px;

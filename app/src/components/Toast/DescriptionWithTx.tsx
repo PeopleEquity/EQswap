@@ -3,6 +3,7 @@ import { getBscScanLink } from 'utils'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useTranslation } from '@pancakeswap/localization'
 import truncateHash from 'utils/truncateHash'
+import { getScan } from '../../utils/wallet'
 
 interface DescriptionWithTxProps {
   description?: string

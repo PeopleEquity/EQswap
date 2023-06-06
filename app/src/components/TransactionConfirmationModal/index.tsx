@@ -22,6 +22,7 @@ import { WrappedTokenInfo } from 'state/types'
 import { AutoColumn, ColumnCenter } from '../Layout/Column'
 import { getBscScanLink } from '../../utils'
 import AddToWalletButton, { AddToWalletTextOptions } from '../AddToWallet/AddToWalletButton'
+import { getScan } from '../../utils/wallet'
 
 const Wrapper = styled.div`
   width: 100%;

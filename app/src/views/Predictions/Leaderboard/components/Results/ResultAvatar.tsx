@@ -9,6 +9,7 @@ import { useStatModalProps } from 'state/predictions/hooks'
 import { useConfig } from 'views/Predictions/context/ConfigProvider'
 import { useWeb3React } from "@web3-react/core";
 import WalletStatsModal from '../WalletStatsModal'
+import { getScan } from '../../../../../utils/wallet'
 
 interface ResultAvatarProps extends FlexProps {
   user: PredictionUser

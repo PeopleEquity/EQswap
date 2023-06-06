@@ -10,6 +10,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { getBscScanLink } from 'utils'
 import ActivityEventText from './ActivityEventText'
 import NFTMedia from '../NFTMedia'
+import { getScan } from '../../../../../utils/wallet'
 
 interface MobileModalProps extends InjectedModalProps {
   activity: Activity

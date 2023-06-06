@@ -13,6 +13,7 @@ import { getDrawnDate } from 'views/Lottery/helpers'
 import { getBscScanLink } from 'utils'
 import Winner from './Winner'
 import useActiveWeb3React from "../../../../../hooks/useActiveWeb3React";
+import { getScan } from '../../../../../utils/wallet'
 
 const StyledCardBody = styled(CardBody)`
   position: relative;

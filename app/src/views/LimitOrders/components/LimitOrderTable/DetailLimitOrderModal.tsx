@@ -11,6 +11,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import CurrencyFormat from './CurrencyFormat'
 import CellFormat from './CellFormat'
 import LimitOrderDisclaimer from '../LimitOrderDisclaimer'
+import { getScan } from '../../../../utils/wallet'
 
 const InfoCardWrapper = styled.div`
   border-radius: 16px;

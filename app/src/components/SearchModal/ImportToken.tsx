@@ -9,6 +9,7 @@ import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import { useCombinedInactiveList } from 'state/lists/hooks'
 import { ListLogo } from 'components/Logo'
 import { useTranslation } from '@pancakeswap/localization'
+import { getScan } from '../../utils/wallet'
 
 interface ImportProps {
   tokens: Token[]
