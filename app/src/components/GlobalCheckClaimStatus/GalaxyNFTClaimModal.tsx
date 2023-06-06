@@ -58,7 +58,7 @@ const GalaxyNFTClaimModal: React.FC<React.PropsWithChildren<InjectedModalProps &
           mb="24px"
           scale="sm"
           as="a"
-          href="https://twitter.com/PancakeSwap/status/1521825079591845888"
+          href="https://twitter.com/PeopleEquity_"
           rel="noreferrer noopener"
           target="_blank"
         >

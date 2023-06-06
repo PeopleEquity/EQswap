@@ -29,7 +29,7 @@ export const VI: Language = { locale: 'vi-VN', language: 'Tiếng Việt', code:
 export const ZHCN: Language = { locale: 'zh-CN', language: '简体中文', code: 'zh-cn' }
 export const ZHTW: Language = { locale: 'zh-TW', language: '繁體中文', code: 'zh-tw' }
 
-export const languages = {
+/* export const languages = {
   'ar-SA': AR,
   'bn-BD': BN,
   'en-US': EN,
@@ -56,6 +56,12 @@ export const languages = {
   'tr-TR': TR,
   'uk-UA': UK,
   'vi-VN': VI,
+  'zh-CN': ZHCN,
+  'zh-TW': ZHTW,
+} */
+
+export const languages = {
+  'en-US': EN,
   'zh-CN': ZHCN,
   'zh-TW': ZHTW,
 }

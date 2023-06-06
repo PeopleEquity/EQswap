@@ -1,8 +1,8 @@
 {
-  "short_name": "PancakeSwap",
-  "name": "PancakeSwap",
-  "description": "Farm CAKE with Pancake LP Tokens",
-  "homepage_url": "https://pancakeswap.finance",
+  "short_name": "EquitySwap",
+  "name": "EquitySwap",
+  "description": "Farm PE with EquitySwap LP Tokens",
+  "homepage_url": "https://equityswap.club/",
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#1FC7D4",

@@ -6,6 +6,7 @@ import { useTranslation } from '@pancakeswap/localization'
 import { useIfoCredit, useIfoCeiling } from 'state/pools/hooks'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { getICakeWeekDisplay } from 'views/Pools/helpers'
+import {BASE_BSC_SCAN_URL} from "../../../../../config";
 
 const InlineLink = styled(Link)`
   display: inline;
@@ -27,7 +28,7 @@ const IfoCakeRow: React.FC<React.PropsWithChildren> = () => {
           },
         )}
       </Text>
-      <InlineLink external href="https://docs.pancakeswap.finance/products/ifo-initial-farm-offering/icake">
+      <InlineLink external href="https://www.peopleequity.club/doc">
         {t('Learn more about iCAKE')}
       </InlineLink>
     </Box>,

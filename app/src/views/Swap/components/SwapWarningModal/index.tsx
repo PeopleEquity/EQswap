@@ -9,7 +9,6 @@ import ItamWarning from './ItamWarning'
 import BondlyWarning from './BondlyWarning'
 import Acknowledgement from './Acknowledgement'
 import CcarWarning from './CcarWarning'
-import BTTWarning from './BTTWarning'
 import RugPullWarning from './RugPullWarning'
 import FREEWarning from './FREEWarning'
 
@@ -47,10 +46,6 @@ const SwapWarningModal: React.FC<React.PropsWithChildren<SwapWarningModalProps>>
     [SwapWarningTokensConfig.ccar.address]: {
       symbol: SwapWarningTokensConfig.ccar.symbol,
       component: <CcarWarning />,
-    },
-    [SwapWarningTokensConfig.bttold.address]: {
-      symbol: SwapWarningTokensConfig.bttold.symbol,
-      component: <BTTWarning />,
     },
     [SwapWarningTokensConfig.pokemoney.address]: {
       symbol: SwapWarningTokensConfig.pokemoney.symbol,

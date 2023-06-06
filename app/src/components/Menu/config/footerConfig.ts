@@ -1,6 +1,8 @@
 import { FooterLinkType } from '@pancakeswap/uikit'
 import { ContextApi } from '@pancakeswap/localization'
 
+
+// TODO:EquitySwap
 export const footerLinks: (t: ContextApi['t']) => FooterLinkType[] = (t) => [
   {
     label: t('About'),

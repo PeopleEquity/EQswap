@@ -75,7 +75,7 @@ export default function Telegram() {
           </Item>
         </Flex>
         <StyledButton>{t('incomeJoinTelegramGroup')}</StyledButton>
-        <StyledLink external href="https://docs.pancakeswap.finance/">{t('incomeViewMore')}</StyledLink>
+        <StyledLink external href="https://www.peopleequity.club/doc">{t('incomeViewMore')}</StyledLink>
       </TelegramWrapper>
   )
 }

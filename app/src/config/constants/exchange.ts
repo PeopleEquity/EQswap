@@ -99,7 +99,7 @@ export const DEFAULT_INPUT_CURRENCY = 'BNB'
 export const DEFAULT_OUTPUT_CURRENCY = 'PE'
 
 // Handler string is passed to Gelato to use PCS router
-export const GELATO_HANDLER = 'pancakeswap'
+export const GELATO_HANDLER = 'equityswap'
 export const GENERIC_GAS_LIMIT_ORDER_EXECUTION = BigNumber.from(500000)
 
-export const LIMIT_ORDERS_DOCS_URL = 'https://docs.pancakeswap.finance/products/pancakeswap-exchange/limit-orders'
+export const LIMIT_ORDERS_DOCS_URL = 'https://www.peopleequity.club/doc'

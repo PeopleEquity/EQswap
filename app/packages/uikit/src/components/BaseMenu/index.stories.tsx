@@ -75,7 +75,7 @@ export const SubMenu: React.FC<React.PropsWithChildren> = () => {
           <SubMenuItem as={LinkExternal} href="https://bscscan.com" bold={false} color="text">
             View on BSCScan
           </SubMenuItem>
-          <SubMenuItem as={LinkExternal} href="https://pancakeswap.info" bold={false} color="text" target="blank">
+          <SubMenuItem as={LinkExternal} href="https://euqityswap.club/info" bold={false} color="text" target="blank">
             View on PCS Info
           </SubMenuItem>
           <SubMenuItem as={Link} to="/profile">
@@ -96,7 +96,7 @@ export const SubMenu: React.FC<React.PropsWithChildren> = () => {
           <SubMenuItem as={LinkExternal} href="https://bscscan.com" bold={false} color="text">
             View on BSCScan
           </SubMenuItem>
-          <SubMenuItem as={LinkExternal} href="https://pancakeswap.info" bold={false} color="text" target="blank">
+          <SubMenuItem as={LinkExternal} href="https://euqityswap.club/info" bold={false} color="text" target="blank">
             View on PCS Info
           </SubMenuItem>
           <SubMenuItem as={Link} to="/profile">
