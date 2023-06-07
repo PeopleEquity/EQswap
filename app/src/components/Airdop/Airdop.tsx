@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   font-size: 14px;
   margin-top: 24px;
   text-decoration: underline;
+  cursor: pointer;
 `
 
 const Airdop: React.FC<React.PropsWithChildren> = () => {

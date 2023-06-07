@@ -60,7 +60,7 @@ export default function AddWhiteList() {
   const { theme } = useTheme()
   const { toastSuccess, toastInfo, toastError } = useToast()
 
-  const [btnText, setBtnText] = useState('Supply 10USDC')
+  const [btnText, setBtnText] = useState('Supply 10 USDT')
   const [loading, setLoading] = useState<boolean>(false)
   const [whiteListAddress, setWhiteListAddress] = useState<string>('')
   const [token, setToken] = useState<string>('')
@@ -175,12 +175,12 @@ export default function AddWhiteList() {
     setBtnText('Supplying')
     supplyCallback()
       .then(() => {
-        setBtnText('Supply 10USDC')
+        setBtnText('Supply 10 USDT')
         setLoading(false)
         toastSuccess('Success')
       })
       .catch((error) => {
-        setBtnText('Supply 10USDC')
+        setBtnText('Supply 10 USDT')
         setLoading(false)
         toastError(error.message)
       })
@@ -266,10 +266,10 @@ export default function AddWhiteList() {
             >
               {btnText}
             </StyledButton>
-            {
+            {/* {
               Number(chainId) === 97 ?
               <StyledA href='https://t.me/PeopleEquity' target="_blank">{t('claimTestUSDCHere')}</StyledA> : null
-            }
+            } */}
           </AutoColumn>
         </CardBody>
       </AppBody>
