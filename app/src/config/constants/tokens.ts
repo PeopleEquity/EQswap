@@ -69,6 +69,33 @@ export const PE = {
   [ChainId.BSC_TESTNET]: PE_TESTNET,
 }
 
+export const USDT = {
+  [ChainId.BSC]: new Token(
+      ChainId.BSC,
+      '0x55d398326f99059ff775485246999027b3197955',
+      18,
+      'USDT',
+      'USDT',
+      'https://www.binance.com/en/trade/BNB_USDT',
+  ),
+  [ChainId.BSC_TESTNET]: new Token(
+      ChainId.BSC_TESTNET,
+      '0x2314DB6CB675E400eFfe74CCf6f5ea3c7D37AF68',
+      6,
+      'USDT',
+      'USDT',
+      'https://www.peopleequity.club/',
+  ),
+  [ChainId.ARB_TESTNET]: new Token(
+      ChainId.ARB_TESTNET,
+      '0xCa86462e71588D507492119d02FCBD8b2f11ac2F',
+      6,
+      'USDT',
+      'USDT',
+      'https://www.peopleequity.club/',
+  ),
+}
+
 const BUSD_MAINNET = new Token(
   ChainId.BSC,
   '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',

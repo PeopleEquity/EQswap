@@ -16,8 +16,7 @@ import { bscTest } from '../../../packages/wagmi/src/chains'
 import Page from '../Page'
 import { AppBody } from '../../components/App'
 import AddWhiteListModal from "./AddWhiteListModal";
-
-const UsdcContractAddress = '0x2314DB6CB675E400eFfe74CCf6f5ea3c7D37AF68'
+import { USDT } from '../../config/constants/tokens'
 
 const OwnerAddress = '0x630c2F96a19B80e76e6Ebf15a2C9166265744320'
 
@@ -89,9 +88,8 @@ export default function AddWhiteList() {
                 .getTransaction(transactionHash)
                 .then(async (res) => {
                   const rst = splitTransferInputData(res.input)
-
                   if (
-                    rst.amount === '10000000000000000000' &&
+                    rst.amount === String(10 * 10 ** USDT[chainId]?.decimals) &&
                     rst.toAddress.toLowerCase() === OwnerAddress.toLowerCase()
                   ) {
                     try {
@@ -120,7 +118,7 @@ export default function AddWhiteList() {
 
   const supplyCallback = useCallback(() => {
     return new Promise<void>((resolve, reject) => {
-      if (!account) {
+      if (!account || !chainId) {
         reject(new Error('Please connect wallet'))
         return
       }
@@ -138,16 +136,22 @@ export default function AddWhiteList() {
             return
           }
 
-          if (alreadyExist) {
+          // 0 pass 1 in whitelist -1 network error
+          if (alreadyExist === 1) {
             reject(new Error('Already added in whitelist'))
             return
           }
 
-          const web3 = new Web3(Web3.givenProvider || bscTest.rpcUrls.default)
-          const contract = new web3.eth.Contract(ERC20_ABI as any, UsdcContractAddress)
+          if (alreadyExist === -1) {
+            reject(new Error('Network error, please try again'))
+            return
+          }
+
+          const web3 = new Web3(Web3.givenProvider)
+          const contract = new web3.eth.Contract(ERC20_ABI as any, USDT[chainId].address)
 
           contract.methods
-              .transfer(OwnerAddress, String(10 * 10 ** 18))
+              .transfer(OwnerAddress, String(10 * 10 ** USDT[chainId]?.decimals))
               .send({ from: account }, (sendError, transactionHash) => {
                 if (sendError) {
                   reject(new Error(sendError.message ?? 'Transaction Error'))

@@ -4,22 +4,26 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 const Config = {
   '56': {
-    pre_url: 'https://bscscan.com/address/',
     factory_address: '',
     setter_address: '',
     setter_private_key: '',
-    WETH: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     gas_price: 5,
     node_url: '',
   },
   '97': {
-    pre_url: 'https://testnet.bscscan.com/address/',
     factory_address: '0x0B2F6E13BF33bd724B3dDEb548576D86D9514C0A',
     setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
     setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
-    WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
     gas_price: 10,
-    node_url: 'https://data-seed-prebsc-2-s3.binance.org:8545',
+    node_url: 'https://bsc-testnet.publicnode.com',
+    /* node_url: 'https://data-seed-prebsc-1-s3.binance.org:8545', */
+  },
+  '421613': {
+    factory_address: '0x9bc213F86E29ecBA3443a4d0F10f60a968a96860',
+    setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
+    setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
+    gas_price: 10,
+    node_url: 'https://goerli-rollup.arbitrum.io/rpc',
   },
 }
 
@@ -39,11 +43,17 @@ async function addWhite(req: NextApiRequest) {
 
   const token = Web3.utils.toChecksumAddress(argToken)
 
-  const web3 = new Web3('https://bsc-testnet.public.blastapi.io')
+  const web3 = new Web3(Config[argChainId].node_url)
   const factoryAddress = Web3.utils.toChecksumAddress(Config[argChainId].factory_address)
 
   const OwnerAddress = Web3.utils.toChecksumAddress(Config[argChainId].setter_address)
 
+  // TODO:
+  // 1. 参数补充
+  // 2. 链上校验发起方的地址确实质押过足够数量的代币到平台地址
+  //    2.1 若无，则提前返回错误码和对应信息
+  //    2.2 若有，则允许其添加
+  // await check()
   // const txParamsData = await factoryContract.methods.addWhiteList(token, argAddress, 1)
 
   // 设置交易参数

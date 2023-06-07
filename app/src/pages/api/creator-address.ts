@@ -19,7 +19,17 @@ const config = {
     setter_private_key: '0x2a5f70d22e1ee3c94e8bdc4846c41d7f92b588cc1bafa8f96d68d0a3533d926c',
     WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
     gas_price: 10,
-    node_url: 'https://data-seed-prebsc-1-s3.binance.org:8545',
+    node_url: 'https://bsc-testnet.publicnode.com',
+    /* node_url: 'https://data-seed-prebsc-1-s3.binance.org:8545', */
+  },
+  '421613': {
+    pre_url: 'https://goerli.arbiscan.io/address/',
+    factory_address: '0x9bc213F86E29ecBA3443a4d0F10f60a968a96860',
+    setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
+    setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
+    WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    gas_price: 10,
+    node_url: 'https://goerli-rollup.arbitrum.io/rpc',
   },
 }
 
@@ -53,20 +63,20 @@ const FactoryABI = [
 
 async function creatorAddress(req: NextApiRequest): Promise<{ creatorAddress: string; alreadyExist: number }> {
   let crawlingCreatorAddress = ''
-  let alreadyExist = 0
+  let alreadyExist = -1
 
   const {
     token: argToken,
     chainId: argChainId,
     address: argAddress,
-  } = parse(req.url.replace(/(.*)\?/g, '')) as { chainId: string; token: string; address: string }
+  } = parse(req.url.replace(/(.*)\?/g, '')) as { chainId: string; token: string; address: string; }
 
   const token = Web3.utils.toChecksumAddress(argToken)
 
-  if (token === Web3.utils.toChecksumAddress(config[argChainId].WETH)) {
+  /* if (token === Web3.utils.toChecksumAddress(config[argChainId].WETH)) {
     alreadyExist = 0
-  }
-  const web3 = new Web3('https://bsc-testnet.public.blastapi.io')
+  } */
+  const web3 = new Web3(config[argChainId].node_url)
   const factoryAddress = Web3.utils.toChecksumAddress(config[argChainId].factory_address)
   const factoryContract = new web3.eth.Contract(FactoryABI as any, factoryAddress)
 
