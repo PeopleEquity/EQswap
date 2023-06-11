@@ -36,16 +36,16 @@ function PoolPriceBar({
   const ammType = useAmmType()
 
   let multiply = 1
-  let divide = 1
+  let divide = 8
 
   if (ammType === AmmType.Five) {
     multiply = 1
-    divide = 4
+    divide = 32
   }
 
   if (ammType === AmmType.SevenFive) {
     multiply = 1
-    divide = 2
+    divide = 16
   }
 
   const isReserve = (currencies?.CURRENCY_A?.address - currencies?.CURRENCY_B?.address) > 0

@@ -157,11 +157,11 @@ export default function Pool() {
               {t('Add Liquidity')}
             </StyledButton>
           </Link>
-          <Link href="/whitelist" passHref>
+          {/* <Link href="/whitelist" passHref>
             <StyledButton id="join-pool-button" width="100%" style={{ background: 'transparent', boxShadow: 'unset', color: '#5c53d3', marginTop: '16px' }}>
               {t('addWhitelist')}
             </StyledButton>
-          </Link>
+          </Link> */}
         </CardFooter>
       </AppBody>
     </Page>

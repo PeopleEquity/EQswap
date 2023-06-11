@@ -30,8 +30,8 @@ export class Pair {
   public readonly liquidityToken: Token
   private readonly tokenAmounts: [TokenAmount, TokenAmount]
 
-  public exponent0: String = '100'
-  public exponent1: String = '100'
+  public exponent0: String = '32'
+  public exponent1: String = '32'
 
   public setExponents(_exponent0: String, _exponent1: String) {
     this.exponent0 = _exponent0
@@ -47,9 +47,9 @@ export class Pair {
       PAIR_ADDRESS_CACHE = {
         ...PAIR_ADDRESS_CACHE,
         [key]: getCreate2Address(
-          FACTORY_ADDRESS_MAP[token0.chainId],
-          keccak256(['bytes'], [pack(['address', 'address'], [token0.address, token1.address])]),
-          INIT_CODE_HASH_MAP[token0.chainId]
+            FACTORY_ADDRESS_MAP[token0.chainId],
+            keccak256(['bytes'], [pack(['address', 'address'], [token0.address, token1.address])]),
+            INIT_CODE_HASH_MAP[token0.chainId]
         ),
       }
     }
@@ -58,14 +58,14 @@ export class Pair {
 
   public constructor(tokenAmountA: TokenAmount, tokenAmountB: TokenAmount) {
     const tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
-      ? [tokenAmountA, tokenAmountB]
-      : [tokenAmountB, tokenAmountA]
+        ? [tokenAmountA, tokenAmountB]
+        : [tokenAmountB, tokenAmountA]
     this.liquidityToken = new Token(
-      tokenAmounts[0].token.chainId,
-      Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
-      18,
-      'Cake-LP',
-      'Pancake LPs'
+        tokenAmounts[0].token.chainId,
+        Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
+        18,
+        'Cake-LP',
+        'Pancake LPs'
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }
@@ -150,14 +150,14 @@ export class Pair {
   public floorCbrt(n: JSBI): JSBI {
     let x: JSBI = JSBI.BigInt(0)
     for (
-      let y = JSBI.exponentiate(JSBI.BigInt(2), JSBI.BigInt(255));
-      JSBI.GT(y, JSBI.BigInt(0));
-      y = JSBI.divide(y, JSBI.BigInt(8))
+        let y = JSBI.exponentiate(JSBI.BigInt(2), JSBI.BigInt(255));
+        JSBI.GT(y, JSBI.BigInt(0));
+        y = JSBI.divide(y, JSBI.BigInt(8))
     ) {
       x = JSBI.multiply(x, JSBI.BigInt(2))
       let z: JSBI = JSBI.add(
-        JSBI.multiply(JSBI.multiply(JSBI.BigInt(3), x), JSBI.add(x, JSBI.BigInt(1))),
-        JSBI.BigInt(1)
+          JSBI.multiply(JSBI.multiply(JSBI.BigInt(3), x), JSBI.add(x, JSBI.BigInt(1))),
+          JSBI.BigInt(1)
       )
       if (JSBI.GE(JSBI.divide(n, y), z)) {
         n = JSBI.subtract(n, JSBI.multiply(y, z))
@@ -167,26 +167,82 @@ export class Pair {
     return x
   }
 
+  public gcd(a: number, b: number): number {
+      if (a < b) {
+        let temp = b
+        b = a
+        a = temp
+      }
+      for (let i = b; i >= 1; i--) {
+        if (a % i == 0 && b % i == 0) {
+          return i
+        }
+      }
+      return 1
+  }
+
   public exp(n: JSBI, a: number, b: number): JSBI {
     const decimal = 38
     const decimal2 = 77
+    const decimal3 = 256
 
     if (a == b) {
       return n
     }
-    a = a / 25
-    b = b / 25
-    // 扩充到48位
-    if ((a == 1 && b == 2) || (a == 2 && b == 4)) {
-      n = this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal))))
-    } else if ((a == 2 && b == 1) || (a == 4 && b == 2)) {
-      n = JSBI.divide(JSBI.multiply(n, n), JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal)))
-    } else if (a == 4 && b == 1) {
-      n = JSBI.divide(JSBI.multiply(JSBI.multiply(n, n), JSBI.multiply(n, n)), JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal2)))
-    } else if (a == 1 && b == 4) {
-      n = this.floorSqrt(this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal2)))))
+
+    const g = this.gcd(a, b)
+    const new_a = a / g
+    const new_b = b / g
+    if (new_a == 1 && new_b == 2) {
+      return this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal))))
+    }
+    if (new_a == 2 && new_b == 1) {
+      let c = this.times(n, n)
+      return JSBI.divide(c, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal)))
+    }
+    if (new_a == 1 && new_b == 4) {
+      return this.floorSqrt(this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal2)))))
+    }
+    if (new_a == 4 && new_b == 1) {
+      let c = this.times(n, n)
+      c = this.times(c, c)
+      return JSBI.divide(c, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal2)))
+    }
+    if (new_a == 1 && new_b == 8) {
+      return this.floorSqrt(this.floorSqrt(this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal2))))))
+    }
+    if (new_a == 8 && new_b == 1) {
+      let c = this.times(n, n)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      return JSBI.divide(c, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal3)))
+    }
+    if (new_a == 1 && new_b == 16) {
+      return this.floorSqrt(this.floorSqrt(this.floorSqrt(this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal3)))))))
+    }
+    if (new_a == 16 && new_b == 1) {
+      let c = this.times(n, n)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      return JSBI.divide(c, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal3)))
+    }
+    if (new_a == 1 && new_b == 32) {
+      return this.floorSqrt(this.floorSqrt(this.floorSqrt(this.floorSqrt(this.floorSqrt(JSBI.multiply(n, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal3))))))))
+    }
+    if (new_a == 32 && new_b == 1) {
+      let c = this.times(n, n)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      c = this.times(c, c)
+      return JSBI.divide(c, JSBI.exponentiate(JSBI.BigInt(10), JSBI.BigInt(decimal3)))
     }
     return n
+  }
+
+  public times(a: JSBI, b: JSBI): JSBI {
+    return JSBI.multiply(a, b)
   }
 
   public copyExp(n: JSBI, a: number, b: number, decimal: number): JSBI {
@@ -231,16 +287,16 @@ export class Pair {
     const inputAmountWithFee = JSBI.divide(JSBI.multiply(inputAmount.raw, FEES_NUMERATOR), FEES_DENOMINATOR)
     const outputDecimals = inputAmount.token.equals(this.token0) ? this.token1.decimals : this.token0.decimals
     const K = JSBI.multiply(
-      this.exp(inputReserve.raw, +inputExponent, 100, inputAmount.currency.decimals),
-      this.exp(outputReserve.raw, +outputExponent, 100, outputDecimals)
+      this.exp(inputReserve.raw, +inputExponent, 32, inputAmount.currency.decimals),
+      this.exp(outputReserve.raw, +outputExponent, 32, outputDecimals)
     )
     const X = this.exp(
       JSBI.add(inputReserve.raw, inputAmountWithFee),
       +inputExponent,
-      100,
+      32,
       inputAmount.currency.decimals
     )
-    const tmp = this.exp(JSBI.divide(K, X), 100, +outputExponent, outputDecimals)
+    const tmp = this.exp(JSBI.divide(K, X), 32, +outputExponent, outputDecimals)
     if (JSBI.LE(JSBI.BigInt(outputReserve.raw), tmp)) {
       throw new InsufficientInputAmountError()
     }
@@ -273,16 +329,16 @@ export class Pair {
     // console.log('outputAmount', JSBI.toNumber(outputAmount.raw))
     const inputDecimals = outputAmount.token.equals(this.token0) ? this.token1.decimals : this.token0.decimals
     const K = JSBI.multiply(
-      this.exp(inputReserve.raw, +inputExponent, 100, inputDecimals),
-      this.exp(outputReserve.raw, +outputExponent, 100, outputAmount.token.decimals)
+      this.exp(inputReserve.raw, +inputExponent, 32, inputDecimals),
+      this.exp(outputReserve.raw, +outputExponent, 32, outputAmount.token.decimals)
     )
     const Y = this.exp(
       JSBI.subtract(outputReserve.raw, outputAmount.raw),
       +outputExponent,
-      100,
+      32,
       outputAmount.currency.decimals
     )
-    const tmp = this.exp(JSBI.divide(K, Y), 100, +inputExponent, inputDecimals)
+    const tmp = this.exp(JSBI.divide(K, Y), 32, +inputExponent, inputDecimals)
     if (JSBI.LT(tmp, JSBI.BigInt(inputReserve.raw))) {
       throw new InsufficientInputAmountError()
     }

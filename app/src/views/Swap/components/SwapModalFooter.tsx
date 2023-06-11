@@ -47,10 +47,10 @@ export default function SwapModalFooter({
   const { priceImpactWithoutFee, realizedLPFee } = useMemo(() => computeTradePriceBreakdown(trade), [trade])
   const severity = warningSeverity(priceImpactWithoutFee)
 
-  const totalFeePercent = `${(TOTAL_FEE * 100).toFixed(2)}%`
-  const lpHoldersFeePercent = `${(LP_HOLDERS_FEE * 100).toFixed(2)}%`
-  const treasuryFeePercent = `${(TREASURY_FEE * 100).toFixed(2)}%`
-  const buyBackFeePercent = `${(BUYBACK_FEE * 100).toFixed(2)}%`
+  const totalFeePercent = `${(TOTAL_FEE * 100).toFixed(3)}%`
+  const lpHoldersFeePercent = `${(LP_HOLDERS_FEE * 100).toFixed(3)}%`
+  const treasuryFeePercent = `${(TREASURY_FEE * 100).toFixed(3)}%`
+  const buyBackFeePercent = `${(BUYBACK_FEE * 100).toFixed(3)}%`
 
   return (
     <>
@@ -117,7 +117,6 @@ export default function SwapModalFooter({
                 <>
                   <Text mb="12px">{t('For each trade a %amount% fee is paid', { amount: totalFeePercent })}</Text>
                   <Text>- {t('%amount% to LP token holders', { amount: lpHoldersFeePercent })}</Text>
-                  <Text>- {t('%amount% to the Treasury', { amount: treasuryFeePercent })}</Text>
                   <Text>- {t('%amount% towards PE buyback and burn', { amount: buyBackFeePercent })}</Text>
                 </>
               }

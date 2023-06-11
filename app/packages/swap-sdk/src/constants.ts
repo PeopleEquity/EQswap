@@ -22,19 +22,19 @@ export enum Rounding {
   ROUND_UP,
 }
 
-export const FACTORY_ADDRESS = '0x0B2F6E13BF33bd724B3dDEb548576D86D9514C0A'
+export const FACTORY_ADDRESS = '0xB29F9baEa2a08aa1c64F7562FfC3F6dD41a9cfc5'
 
 export const FACTORY_ADDRESS_MAP = {
   [ChainId.BSC]: FACTORY_ADDRESS,
-  [ChainId.BSC_TESTNET]: '0x0B2F6E13BF33bd724B3dDEb548576D86D9514C0A',
+  [ChainId.BSC_TESTNET]: '0xB29F9baEa2a08aa1c64F7562FfC3F6dD41a9cfc5',
   [ChainId.ARB_TESTNET]: '0x9bc213F86E29ecBA3443a4d0F10f60a968a96860',
 }
 
-export const INIT_CODE_HASH = '0xd1c2b3bda73011e012c0bbf63c5a9a1e3e8c8cf5866634577465c11c63606962'
+export const INIT_CODE_HASH = '0x0443882da281f0ed8222bd5a60f66b112767e116c8dd815a29a4d6ec58fad964'
 
 export const INIT_CODE_HASH_MAP = {
   [ChainId.BSC]: INIT_CODE_HASH,
-  [ChainId.BSC_TESTNET]: '0xd1c2b3bda73011e012c0bbf63c5a9a1e3e8c8cf5866634577465c11c63606962',
+  [ChainId.BSC_TESTNET]: '0x0443882da281f0ed8222bd5a60f66b112767e116c8dd815a29a4d6ec58fad964',
   [ChainId.ARB_TESTNET]: '0x746497f4db32867dfd3a1515e392987d536072b04efdd59d9fba053b82ccaffb',
 }
 
@@ -48,7 +48,7 @@ export const THREE = JSBI.BigInt(3)
 export const FIVE = JSBI.BigInt(5)
 export const TEN = JSBI.BigInt(10)
 export const _100 = JSBI.BigInt(100)
-export const FEES_NUMERATOR = JSBI.BigInt(9970)
+export const FEES_NUMERATOR = JSBI.BigInt(9985)
 export const FEES_DENOMINATOR = JSBI.BigInt(10000)
 
 export enum SolidityType {

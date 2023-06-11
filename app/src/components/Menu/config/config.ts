@@ -54,10 +54,10 @@ const config: (
           label: t('Liquidity'),
           href: '/liquidity',
         },
-        {
+        /* {
           label: t('DCS'),
           href: '/dcs',
-        },
+        }, */
         /* {
           label: t('Income'),
           href: '/income',
@@ -90,10 +90,10 @@ const config: (
           label: t('Liquidity'),
           href: '/add',
         },
-        {
+        /* {
           label: t('DCS'),
           href: '/dcs',
-        },
+        }, */
         /* {
           label: t('Income'),
           href: '/income',
@@ -115,10 +115,10 @@ const config: (
           label: t('Liquidity'),
           href: '/add',
         },
-        {
+        /* {
           label: t('DCS'),
           href: '/dcs',
-        },
+        }, */
         /* {
           label: t('Income'),
           href: '/income',
@@ -140,10 +140,10 @@ const config: (
           label: t('Liquidity'),
           href: '/add',
         },
-        {
+        /* {
           label: t('DCS'),
           href: '/dcs',
-        },
+        }, */
         /* {
           label: t('Income'),
           href: '/income',

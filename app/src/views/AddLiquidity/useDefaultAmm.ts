@@ -89,15 +89,15 @@ const useDefaultAmm = ({
     const decimalExponent0 = parseInt(exponent0, 10)
     const decimalExponent1 = parseInt(exponent1, 10)
 
-    if ((decimalExponent0 === 100 && decimalExponent1 === 25) || (decimalExponent0 === 25 && decimalExponent1 === 100)) {
+    if ((decimalExponent0 === 32 && decimalExponent1 === 1) || (decimalExponent0 === 1 && decimalExponent1 === 32)) {
       dispatch(changeAmmType(AmmType.Five))
       return
     }
-    if ((decimalExponent0 === 100 && decimalExponent1 === 50) || (decimalExponent0 === 50 && decimalExponent1 === 100)) {
+    if ((decimalExponent0 === 32 && decimalExponent1 === 2) || (decimalExponent0 === 2 && decimalExponent1 === 32)) {
       dispatch(changeAmmType(AmmType.SevenFive))
       return
     }
-    if (decimalExponent0 === 100 && decimalExponent1 === 100) {
+    if ((decimalExponent0 === 32 && decimalExponent1 === 4) || (decimalExponent0 === 4 && decimalExponent1 === 32) ) {
       dispatch(changeAmmType(AmmType.Default))
     }
   })

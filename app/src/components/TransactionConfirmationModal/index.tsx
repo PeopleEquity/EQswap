@@ -165,11 +165,6 @@ export function TransactionErrorBackToAddPageContent({ message, onDismiss }: { m
 
         <StyledFlex justifyContent="center" pt="24px">
           <Button onClick={onDismiss}>{t('Dismiss')}</Button>
-          <Button onClick={onDismiss}>
-            <StyledLink href="/liquidity" passHref>
-              {t('Back To Add WhiteList')}
-            </StyledLink>
-          </Button>
         </StyledFlex>
       </Wrapper>
   )

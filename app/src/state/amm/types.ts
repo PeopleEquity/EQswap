@@ -5,10 +5,10 @@ export interface State {
 }
 
 export const enum AmmType {
-  /** 1: 1 */
+  /** 1: 8 */
   Default = 1,
-  /** 1: 2 */
+  /** 1: 16 */
   SevenFive = 2,
-  /** 1: 4 */
+  /** 1: 32 */
   Five = 3,
 }

@@ -4,8 +4,8 @@ import { bscTokens, bscTestnetTokens, arbTestnetTokens } from './tokens'
 import { ChainTokenList } from './types'
 
 export const ROUTER_ADDRESS = {
-  [ChainId.BSC]: '0xD1f7C457B075080397E0C51Bdb242CFf6CaEb59B',
-  [ChainId.BSC_TESTNET]: '0xD1f7C457B075080397E0C51Bdb242CFf6CaEb59B',
+  [ChainId.BSC]: '0xa581bD985b8C9f753b2C743b0317629b934Ac243',
+  [ChainId.BSC_TESTNET]: '0xa581bD985b8C9f753b2C743b0317629b934Ac243',
   [ChainId.ARB_TESTNET]: '0xa373C0460cD7c1A355E07a004c8f8651aDE8a3d3'
 }
 
@@ -90,7 +90,7 @@ export const BETTER_TRADE_LESS_HOPS_THRESHOLD = new Percent(JSBI.BigInt(50), BIP
 export const ZERO_PERCENT = new Percent('0')
 export const ONE_HUNDRED_PERCENT = new Percent('1')
 
-export const BASE_FEE = new Percent(JSBI.BigInt(25), BIPS_BASE)
+export const BASE_FEE = new Percent(JSBI.BigInt(5), BIPS_BASE)
 export const INPUT_FRACTION_AFTER_FEE = ONE_HUNDRED_PERCENT.subtract(BASE_FEE)
 
 // BNB
