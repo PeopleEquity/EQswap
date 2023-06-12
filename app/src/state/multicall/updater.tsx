@@ -144,6 +144,7 @@ export default function Updater(): null {
   const state = useSelector<AppState, AppState['multicall']>((s) => s.multicall)
   // wait for listeners to settle before triggering updates
   const debouncedListeners = useDebounce(state.callListeners, 100)
+  const debouncedcallResults = useDebounce(state.callResults, 100)
   const currentBlock = useCurrentBlock()
   const { chainId } = useActiveWeb3React()
   const multicallContract = useMulticallContract()
@@ -154,8 +155,8 @@ export default function Updater(): null {
   }, [debouncedListeners, chainId])
 
   const unserializedOutdatedCallKeys = useMemo(() => {
-    return outdatedListeningKeys(state.callResults, listeningKeys, chainId, currentBlock)
-  }, [chainId, state.callResults, listeningKeys, currentBlock])
+    return outdatedListeningKeys(debouncedcallResults, listeningKeys, chainId, currentBlock)
+  }, [chainId, debouncedcallResults, listeningKeys, currentBlock])
 
   const serializedOutdatedCallKeys = useMemo(
     () => JSON.stringify(unserializedOutdatedCallKeys.sort()),
