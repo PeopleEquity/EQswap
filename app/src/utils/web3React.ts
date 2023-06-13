@@ -18,7 +18,7 @@ export const injected = new InjectedConnector({ supportedChainIds: SUPPORTED_CHA
 const walletconnect = new WalletConnectConnector({
   rpc: {
     [ChainId.BSC]: 'https://bsc-dataseed.binance.org',
-    [ChainId.BSC_TESTNET]: 'https://data-seed-prebsc-1-s3.binance.org:8545',
+    [ChainId.BSC_TESTNET]: 'https://bsc-testnet.publicnode.com',
     [ChainId.ARB_TESTNET]: 'https://goerli-rollup.arbitrum.io/rpc',
   },
   qrcode: true,
