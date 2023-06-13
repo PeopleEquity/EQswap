@@ -788,7 +788,7 @@
   "Token Amount": "Кількість токенів",
   "LP tokens in your wallet": "Токени пулу ліквідності у вашому гаманці",
   "Pooled %asset%": "Додано в пул %asset%",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Додавши ліквідність, ви почнете заробляти 0,17% від усіх торгових операцій пропорційно вашій частці пулу. Комісії додаються в пул й накопичуються в реальному часі, і їх можна отримати, вивівши вашу ліквідність.",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Додавши ліквідність, ви почнете заробляти 0,15% від усіх торгових операцій пропорційно вашій частці пулу. Комісії додаються в пул й накопичуються в реальному часі, і їх можна отримати, вивівши вашу ліквідність.",
   "Common bases": "Спільна основа",
   "These tokens are commonly paired with other tokens.": "Ці токени часто поєднуються з іншими токенами.",
   "Expanded results from inactive Token Lists": "Розгорнуто результати з неактивних списків токенів",

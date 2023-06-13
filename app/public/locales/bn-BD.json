@@ -788,7 +788,7 @@
   "Token Amount": "টোকেনের অর্থের পরিমাণ",
   "LP tokens in your wallet": "আপনার ওয়ালেটে LP টোকেন",
   "Pooled %asset%": "%asset% পুল করা হয়েছে",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "লিকুইডিটি যোগ করুন যুক্ত করে আপনি এই জুটির সমস্ত ট্রেডের 0.17% উপার্জন করতে পারবেন, যা আপনার এই পুলের শেয়ারের সমানুপাতিক। পুলে ফি যোগ করা হয়, যা তাৎক্ষণিকভাবে জমা হয় এবং আপনার লিকুইডিটি প্রত্যাহার করে দাবি করা যেতে পারে।",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "লিকুইডিটি যোগ করুন যুক্ত করে আপনি এই জুটির সমস্ত ট্রেডের 0.15% উপার্জন করতে পারবেন, যা আপনার এই পুলের শেয়ারের সমানুপাতিক। পুলে ফি যোগ করা হয়, যা তাৎক্ষণিকভাবে জমা হয় এবং আপনার লিকুইডিটি প্রত্যাহার করে দাবি করা যেতে পারে।",
   "Common bases": "সাধারণ ভিত্তি",
   "These tokens are commonly paired with other tokens.": "এসব টোকেন সাধারণত অন্য টোকেনের সঙ্গে যুক্ত থাকে।",
   "Expanded results from inactive Token Lists": "নিষ্ক্রিয় টোকেন তালিকা থেকে সম্প্রসারিত ফলাফল ",

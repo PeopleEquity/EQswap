@@ -788,7 +788,7 @@
   "Token Amount": "Kwota w tokenach",
   "LP tokens in your wallet": "Tokeny LP w Twoim portfelu",
   "Pooled %asset%": "W puli jest %asset%",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Dodając płynność, zarobisz 0,17% od wszystkich transakcji na tej parze proporcjonalnie do Twojego udziału w puli. Prowizje są dodawane do puli, naliczane w czasie rzeczywistym i można je odebrać poprzez wycofanie płynności.",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Dodając płynność, zarobisz 0,15% od wszystkich transakcji na tej parze proporcjonalnie do Twojego udziału w puli. Prowizje są dodawane do puli, naliczane w czasie rzeczywistym i można je odebrać poprzez wycofanie płynności.",
   "Common bases": "Wspólne podstawy",
   "These tokens are commonly paired with other tokens.": "Te tokeny są często łączone w pary z innymi tokenami.",
   "Expanded results from inactive Token Lists": "Rozszerzone wyniki z nieaktywnych list tokenów",

@@ -788,7 +788,7 @@
   "Token Amount": "Tokenbelopp",
   "LP tokens in your wallet": "LP-tokens i din plånbok",
   "Pooled %asset%": "%asset% har lagts till i poolen",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Genom att tillföra likviditet får du 0,17 % av alla handelstransaktioner på detta par i förhållande till din andel i poolen. Avgifter läggs till i poolen, ackumuleras i realtid och kan hämtas ut genom att ta ut din likviditet.",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Genom att tillföra likviditet får du 0,15 % av alla handelstransaktioner på detta par i förhållande till din andel i poolen. Avgifter läggs till i poolen, ackumuleras i realtid och kan hämtas ut genom att ta ut din likviditet.",
   "Common bases": "Vanliga baser",
   "These tokens are commonly paired with other tokens.": "Dessa tokens paras vanligtvis ihop med andra tokens.",
   "Expanded results from inactive Token Lists": "Utökade resultat från listan med inaktiva tokens",
