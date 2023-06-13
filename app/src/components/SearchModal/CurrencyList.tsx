@@ -88,9 +88,9 @@ function CurrencyRow({
     >
       <CurrencyLogo currency={currency} size="24px" />
       <Column>
-        <Text bold>{currency.symbol}</Text>
+        <Text bold>{currency?.symbol}</Text>
         <Text color="textSubtle" small ellipsis maxWidth="200px">
-          {!isOnSelectedList && customAdded && `${t('Added by user')} •`} {currency.name}
+          {!isOnSelectedList && customAdded && `${t('Added by user')} •`} {currency?.name}
         </Text>
       </Column>
       <RowFixed style={{ justifySelf: 'flex-end' }}>
@@ -127,7 +127,7 @@ export default function CurrencyList({
 }) {
   const itemData: (Currency | undefined)[] = useMemo(() => {
     let formatted: (Currency | undefined)[] = showBNB
-      ? [Currency.ETHER, ...currencies, ...inactiveCurrencies]
+      ? [ETHER, ...currencies, ...inactiveCurrencies]
       : [...currencies, ...inactiveCurrencies]
     if (breakIndex !== undefined) {
       formatted = [...formatted.slice(0, breakIndex), undefined, ...formatted.slice(breakIndex, formatted.length)]

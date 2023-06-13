@@ -182,9 +182,14 @@ export function useToken(tokenAddress?: string): Token | undefined | null {
 
 export function useCurrency(currencyId: string | undefined): Currency | Token | null | undefined {
   const { chainId } = useActiveWeb3React()
-  const isBNB = currencyId?.toUpperCase() === 'BNB' || currencyId?.toLowerCase() === GELATO_NATIVE
+  const isBNB = currencyId?.toUpperCase() === 'BNB' || currencyId?.toUpperCase() === 'ETH' || currencyId?.toLowerCase() === GELATO_NATIVE
   const isPE = currencyId?.toUpperCase() === 'PE'
 
   const token = useToken(isBNB ? undefined : isPE ? PE[chainId]?.address : currencyId)
+
+  if (chainId) {
+    ETHER.resetCurrency(chainId)
+  }
+
   return isBNB ? ETHER : token
 }

@@ -108,7 +108,7 @@ function CurrencySearch({
 
   const showBNB: boolean = useMemo(() => {
     const s = debouncedQuery.toLowerCase().trim()
-    return s === '' || s === 'b' || s === 'bn' || s === 'bnb'
+    return s === '' || s === 'b' || s === 'bn' || s === 'bnb' || s === 'e' || s === 'et' || s === 'eth'
   }, [debouncedQuery])
 
   const filteredTokens: Token[] = useMemo(() => {
@@ -152,7 +152,7 @@ function CurrencySearch({
     (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === 'Enter') {
         const s = debouncedQuery.toLowerCase().trim()
-        if (s === 'bnb') {
+        if (s === 'bnb' || s === 'eth') {
           handleCurrencySelect(ETHER)
         } else if (filteredSortedTokens.length > 0) {
           if (
