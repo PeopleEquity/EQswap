@@ -111,7 +111,7 @@ const SetPositionCard: React.FC<React.PropsWithChildren<SetPositionCardProps>> =
   )
 
   // BNB prediction doesn't need approval
-  const doesCakeApprovePrediction = token.symbol === 'BNB' || isVaultApproved
+  const doesCakeApprovePrediction = token.symbol === 'BNB' || token.symbol === 'ETH' || isVaultApproved
 
   const { balance: bnbBalance } = useTokenBalance()
 

@@ -90,7 +90,7 @@ export const WBNB = {
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
     18,
     'WBNB',
-    'Wrapped BNB',
+    'WBNB',
     'https://www.binance.org'
   ),
   [ChainId.BSC_TESTNET]: new Token(
@@ -98,14 +98,14 @@ export const WBNB = {
     '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
     18,
     'WBNB',
-    'Wrapped BNB',
+    'WBNB',
     'https://www.binance.org'
   ),
   [ChainId.ARB_TESTNET]: new Token(
       ChainId.ARB_TESTNET,
       '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
       18,
-      'ETH',
+      'WBNB',
       'ETH',
       ''
   ),
