@@ -359,7 +359,7 @@ function useZapInGasOverhead(inputAmount: CurrencyAmount | undefined) {
   const gasPrice = useGasPrice()
   const requiredGas = formatUnits(gasPrice ? BigNumber.from(gasPrice).mul('500000') : '0')
   const requiredGasAsCurrencyAmount = inputAmount ? tryParseAmount(requiredGas, ETHER) : undefined
-  const inputIsBNB = inputAmount?.currency.symbol === 'BNB'
+  const inputIsBNB = inputAmount?.currency.symbol === 'BNB' || inputAmount?.currency.symbol === 'ETH'
 
   const gasCostInInputTokens = useTradeExactIn(requiredGasAsCurrencyAmount, inputIsBNB ? null : inputAmount?.currency)
 

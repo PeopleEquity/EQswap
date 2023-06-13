@@ -12,24 +12,27 @@ export const NETWORK_CONFIG = {
     scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC],
     rpcUrls: BSC_RPC_URLS,
     tokenName: 'BNB',
-    symbol: 'bnb',
-    scan: 'BSCScan'
+    symbol: 'BNB',
+    scan: 'BSCScan',
+    decimals: 18,
   },
   [ChainId.BSC_TESTNET]: {
     name: 'BNB Smart Chain Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC_TESTNET],
     rpcUrls: BSC_TESTNET_RPC_URLS,
     tokenName: 'BNB',
-    symbol: 'bnb',
-    scan: 'BSCTestScan'
+    symbol: 'BNB',
+    scan: 'BSCTestScan',
+    decimals: 18,
   },
   [ChainId.ARB_TESTNET]: {
     name: 'ARB Smart Chain Testnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.ARB_TESTNET],
     rpcUrls: ARB_TESTNET_RPC_URLS,
     tokenName: 'ETH',
-    symbol: 'eth',
-    scan: 'ARBScan'
+    symbol: 'ETH',
+    scan: 'ARBScan',
+    decimals: 18,
   },
 }
 
