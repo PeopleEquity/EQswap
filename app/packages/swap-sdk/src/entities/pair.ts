@@ -61,11 +61,11 @@ export class Pair {
         ? [tokenAmountA, tokenAmountB]
         : [tokenAmountB, tokenAmountA]
     this.liquidityToken = new Token(
-        tokenAmounts[0].token.chainId,
-        Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
-        18,
-        'Cake-LP',
-        'Pancake LPs'
+      tokenAmounts[0].token.chainId,
+      Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token),
+      18,
+      'PE-LP',
+      'EquitySwap LPs'
     )
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
   }

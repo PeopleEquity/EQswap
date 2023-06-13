@@ -788,7 +788,7 @@
   "Token Amount": "Số token",
   "LP tokens in your wallet": "Token LP trong ví của bạn",
   "Pooled %asset%": "%asset% được góp quỹ",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Bằng cách bổ sung thanh khoản, bạn sẽ nhận được 0,17% giá trị của tất cả các giao dịch cho cặp tiền tệ này, tỷ lệ với lượng cổ phần của bạn trong quỹ. Phí sẽ được thêm vào quỹ, tích lũy trong thời gian thực và có thể được nhận bằng cách rút thanh khoản của bạn.",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Bằng cách bổ sung thanh khoản, bạn sẽ nhận được 0,15% giá trị của tất cả các giao dịch cho cặp tiền tệ này, tỷ lệ với lượng cổ phần của bạn trong quỹ. Phí sẽ được thêm vào quỹ, tích lũy trong thời gian thực và có thể được nhận bằng cách rút thanh khoản của bạn.",
   "Common bases": "Cơ sở chung",
   "These tokens are commonly paired with other tokens.": "Những token này thường được ghép cặp với những token khác.",
   "Expanded results from inactive Token Lists": "Kết quả mở rộng từ Danh sách Token không hoạt động",
