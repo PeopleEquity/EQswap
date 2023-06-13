@@ -788,7 +788,7 @@
   "Token Amount": "Token Miktarı",
   "LP tokens in your wallet": "Cüzdanındaki LP token'ları",
   "Pooled %asset%": "Havuzdaki %asset% miktarı",
-  "By adding liquidity you'll earn 0.17% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Likidite ekleyerek, havuzdaki payınla orantılı olarak bu çiftteki tüm işlemlerin %0,17'sini kazanacaksın. Ücretler havuza eklenir, gerçek zamanlı olarak tahakkuk eder ve likiditeni çekerek alınabilir.",
+  "By adding liquidity you'll earn 0.15% of all trades on this pair proportional to your share of the pool. Fees are added to the pool, accrue in real time and can be claimed by withdrawing your liquidity.": "Likidite ekleyerek, havuzdaki payınla orantılı olarak bu çiftteki tüm işlemlerin %0,15'sini kazanacaksın. Ücretler havuza eklenir, gerçek zamanlı olarak tahakkuk eder ve likiditeni çekerek alınabilir.",
   "Common bases": "Ortak bazlar",
   "These tokens are commonly paired with other tokens.": "Bu token'lar genelde diğer token'larla eşleniyor.",
   "Expanded results from inactive Token Lists": "Etkin olmayan Token Listelerinden genişletilmiş sonuçlar",
