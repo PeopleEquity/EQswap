@@ -79,7 +79,7 @@
       "symbol": "PE",
       "address": "0xd8855b79656E023F1D14E3697aBF1222d61ddD5d",
       "chainId": 421613,
-      "decimals": 18,
+      "decimals": 9,
       "logoURI": "/images/tokens/0x9411A8a8757F08591594333306fe115927C072E4.png"
     },
     {
@@ -88,7 +88,15 @@
       "address": "0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4",
       "chainId": 421613,
       "decimals": 18,
-      "logoURI": "https://pancakeswap.finance/images/tokens/0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56.png"
+      "logoURI": "https://pancakeswap.finance/images/tokens/0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4.png"
+    },
+    {
+      "name": "WETH Token",
+      "symbol": "WETH",
+      "address": "0x2372aD6C4dD859bcce41d6D2451168eCF23Be3aB",
+      "chainId": 421613,
+      "decimals": 18,
+      "logoURI": "/images/tokens/eth.png"
     }
   ]
 }
