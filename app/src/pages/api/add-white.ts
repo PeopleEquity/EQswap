@@ -11,7 +11,7 @@ const Config = {
     node_url: '',
   },
   '97': {
-    factory_address: '0x0B2F6E13BF33bd724B3dDEb548576D86D9514C0A',
+    factory_address: '0xeff754Bd50d9FCb6e3F2B9594aCaACC089Aed652',
     setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
     setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
     gas_price: 10,
@@ -19,7 +19,7 @@ const Config = {
     /* node_url: 'https://data-seed-prebsc-1-s3.binance.org:8545', */
   },
   '421613': {
-    factory_address: '0x9bc213F86E29ecBA3443a4d0F10f60a968a96860',
+    factory_address: '0x6941CD0d6EF3E4c1294b85fe6EF275AA6C4691fb',
     setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
     setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
     gas_price: 10,

@@ -48,7 +48,7 @@ const PE_MAINNET = new Token(
 const PE_TESTNET = new Token(
   ChainId.BSC_TESTNET,
   '0x9411A8a8757F08591594333306fe115927C072E4',
-  18,
+  9,
   'PE',
   'PE',
   'https://www.peopleequity.club/',
@@ -2412,6 +2412,38 @@ export const bscTestnetTokens = {
   pe: PE_TESTNET,
   cake: CAKE_TESTNET,
   busd: BUSD_TESTNET,
+  usdt: new Token(
+      ChainId.BSC_TESTNET,
+      '0x2314DB6CB675E400eFfe74CCf6f5ea3c7D37AF68',
+      6,
+      'usdt',
+      'TEST USDT Token',
+      'https://www.equityswap.club/',
+  ),
+  es: new Token(
+      ChainId.BSC_TESTNET,
+      '0x83b2eFFb512390f1CD01d0Ae0903B8fa89685Ff1',
+      9,
+      'ES',
+      'ES Token',
+      'https://www.equityswap.club/',
+  ),
+  ms: new Token(
+      ChainId.BSC_TESTNET,
+      '0xf8011b8818A2938BaA137F6162B021aA85E51BDC',
+      9,
+      'MS',
+      'MS Token',
+      'https://www.equityswap.club/',
+  ),
+  ew: new Token(
+      ChainId.BSC_TESTNET,
+      '0x7eAE2e759048C3dc860D20c5026D3fD0C1D88391',
+      9,
+      'EW',
+      'EW Token',
+      'https://www.equityswap.club/',
+  ),
   syrup: new Token(
     ChainId.BSC_TESTNET,
     '0xfE1e507CeB712BDe086f3579d2c03248b2dB77f9',
@@ -2431,6 +2463,14 @@ export const bscTestnetTokens = {
 }
 
 export const arbTestnetTokens = {
+  weth: new Token(
+      ChainId.ARB_TESTNET,
+      '0x2372aD6C4dD859bcce41d6D2451168eCF23Be3aB',
+      18,
+      'WETH',
+      'WETH',
+      ''
+  ),
   pe: new Token(
       ChainId.ARB_TESTNET,
       '0xd8855b79656E023F1D14E3697aBF1222d61ddD5d',
@@ -2441,7 +2481,7 @@ export const arbTestnetTokens = {
   ),
   usdt: new Token(
       ChainId.ARB_TESTNET,
-      '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
+      '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
       18,
       'USDT',
       'usdt',

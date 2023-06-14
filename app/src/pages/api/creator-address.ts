@@ -14,7 +14,7 @@ const config = {
   },
   '97': {
     pre_url: 'https://testnet.bscscan.com/address/',
-    factory_address: '0x0B2F6E13BF33bd724B3dDEb548576D86D9514C0A',
+    factory_address: '0xeff754Bd50d9FCb6e3F2B9594aCaACC089Aed652',
     setter_address: '0x994D95Ea4C37C4b586Fa9668211Daa4Aa03be060',
     setter_private_key: '0x2a5f70d22e1ee3c94e8bdc4846c41d7f92b588cc1bafa8f96d68d0a3533d926c',
     WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
@@ -24,10 +24,10 @@ const config = {
   },
   '421613': {
     pre_url: 'https://goerli.arbiscan.io/address/',
-    factory_address: '0x9bc213F86E29ecBA3443a4d0F10f60a968a96860',
+    factory_address: '0x6941CD0d6EF3E4c1294b85fe6EF275AA6C4691fb',
     setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
     setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
-    WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    WETH: '0x2372aD6C4dD859bcce41d6D2451168eCF23Be3aB',
     gas_price: 10,
     node_url: 'https://goerli-rollup.arbitrum.io/rpc',
   },

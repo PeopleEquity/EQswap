@@ -95,7 +95,7 @@ export const WBNB = {
   ),
   [ChainId.BSC_TESTNET]: new Token(
     ChainId.BSC_TESTNET,
-    '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',
+    '0x1d3833550c06Ba47E93c0e7FFf5f16Fb1163873F',
     18,
     'WBNB',
     'WBNB',
@@ -103,10 +103,10 @@ export const WBNB = {
   ),
   [ChainId.ARB_TESTNET]: new Token(
       ChainId.ARB_TESTNET,
-      '0xFc4433c63285B1e4B9190F0016C58c3a338BC5e4',
+      '0x2372aD6C4dD859bcce41d6D2451168eCF23Be3aB',
       18,
-      'WBNB',
-      'ETH',
+      'WETH',
+      'WETH',
       ''
   ),
 }

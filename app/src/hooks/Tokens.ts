@@ -1,11 +1,11 @@
 /* eslint-disable no-param-reassign */
+import { useMemo } from 'react'
 import { arrayify } from '@ethersproject/bytes'
 import { parseBytes32String } from '@ethersproject/strings'
 import { Currency, currencyEquals, ETHER, Token } from '@pancakeswap/sdk'
 import { createSelector } from '@reduxjs/toolkit'
 import { GELATO_NATIVE } from 'config/constants'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
-import { useMemo } from 'react'
 import { useSelector } from 'react-redux'
 import { TokenAddressMap } from 'state/types'
 import {
@@ -187,9 +187,6 @@ export function useCurrency(currencyId: string | undefined): Currency | Token | 
 
   const token = useToken(isBNB ? undefined : isPE ? PE[chainId]?.address : currencyId)
 
-  if (chainId) {
-    ETHER.resetCurrency(chainId)
-  }
 
   return isBNB ? ETHER : token
 }
