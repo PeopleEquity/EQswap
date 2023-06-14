@@ -22,7 +22,7 @@ const WalletWrongNetwork: React.FC<React.PropsWithChildren<WalletWrongNetworkPro
   const { connector, library } = useWeb3React()
 
   const handleSwitchNetwork = async (): Promise<void> => {
-    await setupNetwork(ChainId.BSC, library)
+    await setupNetwork(ChainId.BSC_TESTNET, library)
     onDismiss?.()
   }
 

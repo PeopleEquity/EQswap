@@ -10,6 +10,7 @@ import { useAccountEventListener } from 'hooks/useAccountEventListener'
 import useSentryUser from 'hooks/useSentryUser'
 import useUserAgent from 'hooks/useUserAgent'
 import useThemeCookie from 'hooks/useThemeCookie'
+import useResetETHER from 'hooks/useResetETHER'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Fragment } from 'react'
@@ -41,6 +42,7 @@ function GlobalHooks() {
   useAccountEventListener()
   useSentryUser()
   useThemeCookie()
+  useResetETHER()
   return null
 }
 
@@ -51,6 +53,7 @@ function MPGlobalHooks() {
   useUserAgent()
   useAccountEventListener()
   useSentryUser()
+  useResetETHER()
   return null
 }
 
