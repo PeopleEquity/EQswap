@@ -42,7 +42,7 @@ const useRankingInfo = (pathName, size, timeType, type, currentPage, setLoading,
           {
             method: 'post',
             body: JSON.stringify({
-              net: account ? Number(chainId) : 97,
+              net: account ? `evm--${Number(chainId)}` : `evm--97`,
               page: pageNumber,
               size,
               sortName: '',

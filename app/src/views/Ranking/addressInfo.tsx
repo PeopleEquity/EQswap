@@ -9,7 +9,7 @@ import Page from '../Page'
 
 const StyledAppBody = styled(Card)`
   border: none;
-  border-radius: 6px;
+  border-radius: 6px; 
   overflow: unset;
   max-width: 687px;
   width: 100%;
@@ -220,7 +220,8 @@ const ListItemTitle = styled.div`
   font-family: 'PingFang SC';
   font-style: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 16px;
   color: #ffffff;
   text-align: left;
   & > span {
