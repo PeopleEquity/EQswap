@@ -1,6 +1,6 @@
 const getTokenLogoURL = (address: string) => {
-  return `/images/tokens/${address}.png`
-  /* return `https://assets-cdn.trustwallet.com/blockchains/smartchain/assets/${address}/logo.png` */
+  return `https://github.com/PeopleEquity/TokenList/blob/main/lists/images/${address}.png?raw=true`
+  /* return `https://github.com/PeopleEquity/TokenList/blob/main/lists/images/${address}.png?raw=true` */
 }
 
 export default getTokenLogoURL

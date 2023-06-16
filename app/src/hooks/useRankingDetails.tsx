@@ -57,7 +57,7 @@ const useRankingInfo = (address) => {
           {
             method: 'post',
             body: JSON.stringify({
-              net: account ? `evm-${Number(chainId)}` : `evm--97`,
+              net: account ? `evm--${Number(chainId)}` : `evm--97`,
               targetWallet: address,
             }),
             headers: new Headers({
