@@ -39,7 +39,7 @@ const NFTName = styled.div`
 `
 
 const NFTInfoInner = styled.div`
-  width: 200px;
+  width: 100px;
   margin: 0 auto;
 `
 
@@ -93,6 +93,7 @@ const ProjectInfoWrapper = styled.div`
   display: flex;
   justify-content: left;
   align-items: center;
+  padding: 0 8px;
 `
 
 const ProjectInfo = styled.div``
@@ -116,14 +117,74 @@ const ProjectAddress = styled.div`
   color: #A2A0A8;
 `
 
-const HistoryWrapper = styled.div``
+const HistoryWrapper = styled.div`
+  
+`
+
+const HistoryList = styled.div`
+  margin-bottom: 12px;
+`
+
+const HistoryText = styled.div`
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  & > span {
+    color: #8e8e93;
+  }
+  margin-bottom: 2px;
+`
+
+const TimeStamp = styled.div`
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 17px;
+  color: #8e8e93;
+`
 
 const Tab = styled.div`
-  margin: 32px 0 12px 0;
+  padding: 0 8px;
+  margin: 32px 0 7px 0;
+  display: flex;
 `
 
 const TabItem = styled.div`
-  
+  font-family: 'PingFang SC';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  color: #8e8e93;
+  margin-right: 16px;
+  cursor: pointer;
+  position: relative;
+  &.active {
+    color: #000000;
+    &::after {
+      content: '';
+      display: block;
+      width: 50%;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      bottom: -7px;
+      background: #000000;
+    }
+  }
+`
+
+const Line = styled.div`
+  width: 100%;
+  height: 0.5px;
+  background: #e6e6e6;
+  transform: scaleY(0.5);
+  margin-bottom: 12px;
 `
 
 export default function projectDetails() {
@@ -143,9 +204,10 @@ export default function projectDetails() {
             </ProjectInfo>
           </ProjectInfoWrapper>
           <Tab>
-            <TabItem>项目</TabItem>
-            <TabItem>历史记录</TabItem>
+            <TabItem className={tab === 0 ? 'active' : ''} onClick={() => setTab(0)}>项目</TabItem>
+            <TabItem className={tab === 1 ? 'active' : ''} onClick={() => setTab(1)}>历史记录</TabItem>
           </Tab>
+          <Line />
           {
             tab === 0 ?
                 <NFTInfoWrapper>
@@ -181,6 +243,21 @@ export default function projectDetails() {
           {
             tab === 1 ?
                 <HistoryWrapper>
+                  <HistoryList>
+                    <HistoryText>0xkd56…dkmko3<span> 领取了 </span>NFT 名称#1</HistoryText>
+                    <TimeStamp>2022-11-11 14:09:25</TimeStamp>
+                  </HistoryList>
+                  <Line />
+                  <HistoryList>
+                    <HistoryText>0xkd56…dkmko3<span>领取了</span>NFT 名称#1</HistoryText>
+                    <TimeStamp>2022-11-11 14:09:25</TimeStamp>
+                  </HistoryList>
+                  <Line />
+                  <HistoryList>
+                    <HistoryText>0xkd56…dkmko3<span>领取了</span>NFT 名称#1</HistoryText>
+                    <TimeStamp>2022-11-11 14:09:25</TimeStamp>
+                  </HistoryList>
+                  <Line />
                 </HistoryWrapper> : null
           }
         </LinkWrapper>
