@@ -11,7 +11,7 @@ const config = {
     WETH: '0x308c1be1A89A144711cFE78dD67dBf8b7F179b17',
     gas_price: 10,
     node_url: 'https://ethereum-goerli.publicnode.com/',
-    reg: /mainaddress'>(.*?)</
+    reg: /Creator Address \((.*?)\)'/
   },
   '56': {
     pre_url: 'https://bscscan.com/address/',
