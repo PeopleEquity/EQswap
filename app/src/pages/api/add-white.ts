@@ -19,7 +19,7 @@ const Config = {
     node_url: '',
   },
   '97': {
-    factory_address: '0xeff754Bd50d9FCb6e3F2B9594aCaACC089Aed652',
+    factory_address: '0x1FCCE1800116fBDb2B02FF43FcCcbEd5BeeC9093',
     setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
     setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
     gas_price: 10,

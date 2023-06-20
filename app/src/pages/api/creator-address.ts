@@ -25,7 +25,7 @@ const config = {
   },
   '97': {
     pre_url: 'https://testnet.bscscan.com/address/',
-    factory_address: '0xeff754Bd50d9FCb6e3F2B9594aCaACC089Aed652',
+    factory_address: '0x1FCCE1800116fBDb2B02FF43FcCcbEd5BeeC9093',
     setter_address: '0x994D95Ea4C37C4b586Fa9668211Daa4Aa03be060',
     setter_private_key: '0x2a5f70d22e1ee3c94e8bdc4846c41d7f92b588cc1bafa8f96d68d0a3533d926c',
     WETH: '0xae13d989daC2f0dEbFf460aC112a837C89BAa7cd',

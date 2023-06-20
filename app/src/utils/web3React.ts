@@ -11,16 +11,16 @@ import {Web3Provider} from '@ethersproject/providers'
 
 const POLLING_INTERVAL = 12000
 
-const SUPPORTED_CHAIN_ID = [ChainId.GOERLI, ChainId.BSC, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET]
+const SUPPORTED_CHAIN_ID = [ChainId.BSC_TESTNET] // [ChainId.GOERLI, ChainId.BSC, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET]
 
 export const injected = new InjectedConnector({ supportedChainIds: SUPPORTED_CHAIN_ID })
 
 const walletconnect = new WalletConnectConnector({
   rpc: {
-    [ChainId.GOERLI]: 'https://goerli.infura.io/v3/',
+    /* [ChainId.GOERLI]: 'https://goerli.infura.io/v3/', */
     [ChainId.BSC]: 'https://bsc-dataseed.binance.org',
-    [ChainId.BSC_TESTNET]: 'https://bsc-testnet.publicnode.com',
-    [ChainId.ARB_TESTNET]: 'https://goerli-rollup.arbitrum.io/rpc',
+    /* [ChainId.BSC_TESTNET]: 'https://bsc-testnet.publicnode.com',
+    [ChainId.ARB_TESTNET]: 'https://goerli-rollup.arbitrum.io/rpc', */
   },
   qrcode: true,
   pollingInterval: POLLING_INTERVAL,

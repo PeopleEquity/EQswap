@@ -7,7 +7,7 @@ import { setupNetwork } from 'utils/wallet'
 
 // const chains = [bsc, bscTest, arbTest]
 
-const chains = [goerli, bscTest, arbTest]
+const chains = [bscTest]
 
 export const NetworkSelect = () => {
   const { t } = useTranslation()
