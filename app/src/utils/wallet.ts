@@ -4,9 +4,18 @@ import { ExternalProvider } from '@ethersproject/providers'
 import { ChainId } from '@pancakeswap/sdk'
 import { BAD_SRCS } from 'components/Logo/Logo'
 import { BASE_BSC_SCAN_URLS } from 'config'
-import { BSC_RPC_URLS, BSC_TESTNET_RPC_URLS, ARB_TESTNET_RPC_URLS } from '../config/constants/rpc'
+import { GOERLI_RPC_URLS, BSC_RPC_URLS, BSC_TESTNET_RPC_URLS, ARB_TESTNET_RPC_URLS } from '../config/constants/rpc'
 
 export const NETWORK_CONFIG = {
+  [ChainId.GOERLI]: {
+    name: 'Goerli',
+    scanURL: BASE_BSC_SCAN_URLS[ChainId.GOERLI],
+    rpcUrls: GOERLI_RPC_URLS,
+    tokenName: 'ETH',
+    symbol: 'ETH',
+    scan: 'ETHScan',
+    decimals: 18,
+  },
   [ChainId.BSC]: {
     name: 'BNB Smart Chain Mainnet',
     scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC],

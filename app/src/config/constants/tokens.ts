@@ -64,12 +64,15 @@ export const CAKE = {
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
 }
 
-export const PE = {
-  [ChainId.BSC]: PE_MAINNET,
-  [ChainId.BSC_TESTNET]: PE_TESTNET,
-}
-
 export const USDT = {
+  [ChainId.GOERLI]: new Token(
+      ChainId.GOERLI,
+      '0x491AD950e6cE33B1c5911Ed091Bc19eF1B257F46',
+      6,
+      'USDT',
+      'USDT',
+      '',
+  ),
   [ChainId.BSC]: new Token(
       ChainId.BSC,
       '0x55d398326f99059ff775485246999027b3197955',
@@ -115,6 +118,14 @@ const BUSD_TESTNET = new Token(
 )
 
 export const BUSD: Record<ChainId, Token> = {
+  [ChainId.GOERLI]: new Token(
+      ChainId.ARB_TESTNET,
+      '0x491AD950e6cE33B1c5911Ed091Bc19eF1B257F46',
+      6,
+      'USDT',
+      'USDT',
+      '',
+  ),
   [ChainId.BSC]: BUSD_MAINNET,
   [ChainId.BSC_TESTNET]: BUSD_TESTNET,
   [ChainId.ARB_TESTNET]: new Token(
@@ -2462,6 +2473,33 @@ export const bscTestnetTokens = {
   ),
 }
 
+export const goerliTokens = {
+  weth: new Token(
+      ChainId.GOERLI,
+      '0x308c1be1A89A144711cFE78dD67dBf8b7F179b17',
+      18,
+      'WETH',
+      'WETH',
+      ''
+  ),
+  pe: new Token(
+      ChainId.GOERLI,
+      '0x092705731B778f74596582B0f1b2936B0954daC7',
+      9,
+      'PE',
+      'PeopleEquity Token',
+      'https://peopleequity.club/',
+  ),
+  usdt: new Token(
+      ChainId.GOERLI,
+      '0x491AD950e6cE33B1c5911Ed091Bc19eF1B257F46',
+      6,
+      'USDT',
+      'usdt',
+      '',
+  ),
+}
+
 export const arbTestnetTokens = {
   weth: new Token(
       ChainId.ARB_TESTNET,
@@ -2487,4 +2525,11 @@ export const arbTestnetTokens = {
       'usdt',
       '',
   ),
+}
+
+export const PE = {
+  [ChainId.GOERLI]: goerliTokens.pe,
+  [ChainId.BSC]: PE_MAINNET,
+  [ChainId.BSC_TESTNET]: PE_TESTNET,
+  [ChainId.ARB_TESTNET]: arbTestnetTokens.pe,
 }

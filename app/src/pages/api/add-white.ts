@@ -3,6 +3,14 @@ import { parse } from 'qs'
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 const Config = {
+  '5': {
+    factory_address: '0xa373C0460cD7c1A355E07a004c8f8651aDE8a3d3',
+    setter_address: '0x630c2F96a19B80e76e6Ebf15a2C9166265744320',
+    setter_private_key: '0x4de207f84627b4d67f2e4dd5d94ec1227136256e98dc7d624566ab1b8d784874',
+    gas_price: 10,
+    node_url: 'https://ethereum-goerli.publicnode.com/',
+    /* node_url: 'https://data-seed-prebsc-1-s3.binance.org:8545', */
+  },
   '56': {
     factory_address: '',
     setter_address: '',

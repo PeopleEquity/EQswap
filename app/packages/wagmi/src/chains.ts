@@ -147,6 +147,29 @@ export const arbTest: Chain = {
   testnet: true,
 }
 
+export const goerli: Chain = {
+  id: 5,
+  name: 'Goerli',
+  network: 'Goerli',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    default: 'https://goerli.infura.io/v3/',
+    public: 'https://goerli.infura.io/v3/',
+  },
+  blockExplorers: {
+    default: { name: 'ArbScan', url: 'https://goerli.etherscan.io' },
+  },
+  multicall: {
+    address: '0xd8855b79656E023F1D14E3697aBF1222d61ddD5d',
+    blockCreated: 9105236,
+  },
+  testnet: true,
+}
+
 export const CHAINS_TESTNET = [
   bscTest,
   rinkeby,
