@@ -1,5 +1,5 @@
 import { Box, Text, UserMenu, UserMenuDivider, UserMenuItem } from '@pancakeswap/uikit'
-import { bsc, bscTest, arbTest } from '@pancakeswap/wagmi'
+import { goerli, bsc, bscTest, arbTest } from '@pancakeswap/wagmi'
 import { useTranslation } from '@pancakeswap/localization'
 import useActiveWeb3React from 'hooks/useActiveWeb3React'
 import Image from 'next/image'
@@ -7,7 +7,7 @@ import { setupNetwork } from 'utils/wallet'
 
 // const chains = [bsc, bscTest, arbTest]
 
-const chains = [bscTest, arbTest]
+const chains = [goerli, bscTest, arbTest]
 
 export const NetworkSelect = () => {
   const { t } = useTranslation()

@@ -10,6 +10,7 @@ BigNumber.config({
 export const BSC_BLOCK_TIME = 3
 
 export const BASE_BSC_SCAN_URLS = {
+  [ChainId.GOERLI]: 'https://goerli.etherscan.io',
   [ChainId.BSC]: 'https://bscscan.com',
   [ChainId.BSC_TESTNET]: 'https://testnet.bscscan.com',
   [ChainId.ARB_TESTNET]: 'https://goerli.arbiscan.io',

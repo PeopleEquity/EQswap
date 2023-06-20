@@ -85,6 +85,14 @@ export function currencyEquals(currencyA: Currency, currencyB: Currency): boolea
 // }
 
 export const WBNB = {
+  [ChainId.GOERLI]: new Token(
+      ChainId.GOERLI,
+      '0x308c1be1A89A144711cFE78dD67dBf8b7F179b17',
+      18,
+      'WETH',
+      'WETH',
+      ''
+  ),
   [ChainId.BSC]: new Token(
     ChainId.BSC,
     '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
@@ -114,6 +122,7 @@ export const WBNB = {
 export const WNATIVE = {
   // [ChainId.ETHEREUM]: WETH9[ChainId.ETHEREUM],
   // [ChainId.RINKEBY]: WETH9[ChainId.RINKEBY],
+  [ChainId.GOERLI]: WBNB[ChainId.GOERLI],
   [ChainId.BSC]: WBNB[ChainId.BSC],
   [ChainId.BSC_TESTNET]: WBNB[ChainId.BSC_TESTNET],
   [ChainId.ARB_TESTNET]: WBNB[ChainId.ARB_TESTNET],
