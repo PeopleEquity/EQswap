@@ -65,6 +65,14 @@ export const CAKE = {
 }
 
 export const USDT = {
+  [ChainId.GOERLI]: new Token(
+      ChainId.GOERLI,
+      '0x491AD950e6cE33B1c5911Ed091Bc19eF1B257F46',
+      6,
+      'USDT',
+      'USDT',
+      '',
+  ),
   [ChainId.BSC]: new Token(
       ChainId.BSC,
       '0x55d398326f99059ff775485246999027b3197955',
@@ -113,7 +121,7 @@ export const BUSD: Record<ChainId, Token> = {
   [ChainId.GOERLI]: new Token(
       ChainId.ARB_TESTNET,
       '0x491AD950e6cE33B1c5911Ed091Bc19eF1B257F46',
-      18,
+      6,
       'USDT',
       'USDT',
       '',

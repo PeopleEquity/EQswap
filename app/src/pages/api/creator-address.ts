@@ -113,11 +113,8 @@ async function creatorAddress(req: NextApiRequest): Promise<{ creatorAddress: st
   const crawlingHtml = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0' } }).then((response) => {
     return response.text()
   })
-  console.log('crawlingHtml', crawlingHtml)
   const regexpPattern = config[argChainId].reg
-  console.log('regexpPattern', regexpPattern)
   crawlingCreatorAddress = crawlingHtml.match(regexpPattern)?.[1]
-  console.log('crawlingCreatorAddress', crawlingCreatorAddress)
   return { creatorAddress: crawlingCreatorAddress, alreadyExist }
 }
 
