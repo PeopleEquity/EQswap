@@ -17,6 +17,7 @@ export const AIRDOP_ADDRESS = {
 
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
+  [ChainId.GOERLI]: [goerliTokens.pe, goerliTokens.usdt],
   [ChainId.BSC]: [
     bscTokens.wbnb,
     bscTokens.pe,

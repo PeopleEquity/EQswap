@@ -52,10 +52,10 @@ function PoolPriceBar({
   const decimals = currencies?.CURRENCY_A?.decimals - currencies?.CURRENCY_B?.decimals
   const a = price ? (isReserve ?
       new BigNumber(price?.toSignificant(18)).times(divide).times(10 ** decimals).toFixed(6) :
-      new BigNumber(price?.toSignificant(18)).dividedBy(divide).times(10 ** decimals).toFixed(6)) : '-'
+      new BigNumber(price?.invert().toSignificant(18)).dividedBy(divide).dividedBy(10 ** decimals).toFixed(6)) : '-'
   const b = price ? (isReserve ?
       new BigNumber(price?.invert()?.toSignificant(18)).dividedBy(divide).dividedBy(10 ** decimals).toFixed(6) :
-      new BigNumber(price?.invert()?.toSignificant(18)).times(divide).dividedBy(10 ** decimals).toFixed(6)) : '-'
+      new BigNumber(price?.toSignificant(18)).times(divide).times(10 ** decimals).toFixed(6)) : '-'
 
   return (
     <AutoColumn gap="md">

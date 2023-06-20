@@ -64,11 +64,6 @@ export const CAKE = {
   [ChainId.BSC_TESTNET]: CAKE_TESTNET,
 }
 
-export const PE = {
-  [ChainId.BSC]: PE_MAINNET,
-  [ChainId.BSC_TESTNET]: PE_TESTNET,
-}
-
 export const USDT = {
   [ChainId.GOERLI]: new Token(
       ChainId.GOERLI,
@@ -2530,4 +2525,11 @@ export const arbTestnetTokens = {
       'usdt',
       '',
   ),
+}
+
+export const PE = {
+  [ChainId.GOERLI]: goerliTokens.pe,
+  [ChainId.BSC]: PE_MAINNET,
+  [ChainId.BSC_TESTNET]: PE_TESTNET,
+  [ChainId.ARB_TESTNET]: arbTestnetTokens.pe,
 }
