@@ -12,7 +12,6 @@ import AddressInputArea from 'components/AddressInputArea'
 import useToast from 'hooks/useToast'
 import useTheme from 'hooks/useTheme'
 
-import { bscTest } from '../../../packages/wagmi/src/chains'
 import Page from '../Page'
 import { AppBody } from '../../components/App'
 import AddWhiteListModal from "./AddWhiteListModal";
@@ -239,7 +238,7 @@ export default function AddWhiteList() {
                       {t('liquidityText7')}
                     </> : null
               }
-              <div role="button" tabIndex="0" onKeyDown={() => {setMore(!isMore)}} style={{zoom: '0.96', color: '#5c53d3', cursor: 'pointer', textAlign: 'right'}} onClick={() => {setMore(!isMore)}}>{isMore ? t('hide') : t('more')}</div>
+              <div role="button" tabIndex={0} onKeyDown={() => {setMore(!isMore)}} style={{zoom: '0.96', color: '#5c53d3', cursor: 'pointer', textAlign: 'right'}} onClick={() => {setMore(!isMore)}}>{isMore ? t('hide') : t('more')}</div>
             </Text>
             <AutoColumn gap="10px">
               <Subtitle>{t('accountAddress')}</Subtitle>
