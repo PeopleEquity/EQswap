@@ -8,7 +8,7 @@ import { JsonRpcSigner, Web3Provider } from '@ethersproject/providers'
 import { BigNumber } from '@ethersproject/bignumber'
 import { Token, Currency, ETHER, ChainId } from '@pancakeswap/sdk'
 import { TokenAddressMap } from 'state/types'
-import { BASE_BSC_SCAN_URLS } from '../config'
+import { NETWORK_CONFIG } from '../config'
 
 // returns the checksummed address if the address is valid, otherwise returns false
 export const isAddress = memoize((value: any): string | false => {
@@ -27,19 +27,19 @@ export function getBscScanLink(
   const chainId = chainIdOverride || ChainId.BSC
   switch (type) {
     case 'transaction': {
-      return `${BASE_BSC_SCAN_URLS[chainId]}/tx/${data}`
+      return `${NETWORK_CONFIG[chainId]?.scanURL}/tx/${data}`
     }
     case 'token': {
-      return `${BASE_BSC_SCAN_URLS[chainId]}/token/${data}`
+      return `${NETWORK_CONFIG[chainId]?.scanURL}/token/${data}`
     }
     case 'block': {
-      return `${BASE_BSC_SCAN_URLS[chainId]}/block/${data}`
+      return `${NETWORK_CONFIG[chainId]?.scanURL}/block/${data}`
     }
     case 'countdown': {
-      return `${BASE_BSC_SCAN_URLS[chainId]}/block/countdown/${data}`
+      return `${NETWORK_CONFIG[chainId]?.scanURL}/block/countdown/${data}`
     }
     default: {
-      return `${BASE_BSC_SCAN_URLS[chainId]}/address/${data}`
+      return `${NETWORK_CONFIG[chainId]?.scanURL}/address/${data}`
     }
   }
 }

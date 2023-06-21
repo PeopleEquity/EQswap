@@ -1,15 +1,14 @@
-import { useEffect } from 'react'
 // import { useRouter } from 'next/router'
-import { FACTORY_ADDRESS } from '@pancakeswap/sdk'
-import { getUnixTime, sub } from 'date-fns'
-import { gql } from 'graphql-request'
-import { GetStaticProps } from 'next'
-import { SWRConfig } from 'swr'
-import { bitQueryServerClient, infoServerClient } from 'utils/graphql'
-import { getCakeVaultAddress } from 'utils/addressHelpers'
-import { getCakeContract } from 'utils/contractHelpers'
-import { getBlocksFromTimestamps } from 'utils/getBlocksFromTimestamps'
-import { formatEther } from '@ethersproject/units'
+import {ChainId, FACTORY_ADDRESS_MAP} from '@pancakeswap/sdk'
+import {getUnixTime, sub} from 'date-fns'
+import {gql} from 'graphql-request'
+import {GetStaticProps} from 'next'
+import {SWRConfig} from 'swr'
+import {bitQueryServerClient, infoServerClient} from 'utils/graphql'
+import {getCakeVaultAddress} from 'utils/addressHelpers'
+import {getCakeContract} from 'utils/contractHelpers'
+import {getBlocksFromTimestamps} from 'utils/getBlocksFromTimestamps'
+import {formatEther} from '@ethersproject/units'
 import Home from '../views/Home'
 
 const IndexPage = ({ totalTx30Days, addressCount30Days, tvl, ...props }) => {
@@ -64,13 +63,13 @@ export const getStaticProps: GetStaticProps = async () => {
       }
 
       const totalTx = await infoServerClient.request(totalTxQuery, {
-        id: FACTORY_ADDRESS,
+        id: FACTORY_ADDRESS_MAP[ChainId.BSC],
       })
       const totalTx30DaysAgo = await infoServerClient.request(totalTxQuery, {
         block: {
           number: days30AgoBlock.number,
         },
-        id: FACTORY_ADDRESS,
+        id: FACTORY_ADDRESS_MAP[ChainId.BSC],
       })
 
       if (

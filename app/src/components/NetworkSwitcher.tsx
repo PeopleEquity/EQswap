@@ -98,7 +98,7 @@ export const arbTest = {
   testnet: true,
 }
 
-const chains = [goerli, bsc, bscTest, arbTest]
+const chains = [goerli, bscTest, arbTest] // [goerli, bsc, bscTest, arbTest]
 
 export const NetworkSelect = () => {
   const { t } = useTranslation()

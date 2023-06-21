@@ -1,49 +1,9 @@
 // Set of helper functions to facilitate wallet setup
 
 import { ExternalProvider } from '@ethersproject/providers'
-import { ChainId } from '@pancakeswap/sdk'
 import { BAD_SRCS } from 'components/Logo/Logo'
-import { BASE_BSC_SCAN_URLS } from 'config'
-import { GOERLI_RPC_URLS, BSC_RPC_URLS, BSC_TESTNET_RPC_URLS, ARB_TESTNET_RPC_URLS } from '../config/constants/rpc'
+import { NETWORK_CONFIG } from '../config'
 
-export const NETWORK_CONFIG = {
-  [ChainId.GOERLI]: {
-    name: 'Goerli',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.GOERLI],
-    rpcUrls: GOERLI_RPC_URLS,
-    tokenName: 'ETH',
-    symbol: 'ETH',
-    scan: 'ETHScan',
-    decimals: 18,
-  },
-  [ChainId.BSC]: {
-    name: 'BNB Smart Chain Mainnet',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC],
-    rpcUrls: BSC_RPC_URLS,
-    tokenName: 'BNB',
-    symbol: 'BNB',
-    scan: 'BSCScan',
-    decimals: 18,
-  },
-  [ChainId.BSC_TESTNET]: {
-    name: 'BNB Smart Chain Testnet',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.BSC_TESTNET],
-    rpcUrls: BSC_TESTNET_RPC_URLS,
-    tokenName: 'BNB',
-    symbol: 'BNB',
-    scan: 'BSCTestScan',
-    decimals: 18,
-  },
-  [ChainId.ARB_TESTNET]: {
-    name: 'ARB Smart Chain Testnet',
-    scanURL: BASE_BSC_SCAN_URLS[ChainId.ARB_TESTNET],
-    rpcUrls: ARB_TESTNET_RPC_URLS,
-    tokenName: 'ETH',
-    symbol: 'ETH',
-    scan: 'ARBScan',
-    decimals: 18,
-  },
-}
 
 /**
  * Prompt the user to add BSC as a network on Metamask, or switch to BSC if the wallet is on a different network

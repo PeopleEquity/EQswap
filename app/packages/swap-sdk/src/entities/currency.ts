@@ -1,6 +1,6 @@
 import JSBI from 'jsbi'
 import { SolidityType } from '../constants'
-import { NETWORK_CONFIG } from '../../../../src/utils/wallet'
+import { NETWORK_CONFIG } from '../../../../src/config'
 import { validateSolidityTypeInstance } from '../utils'
 
 /**
