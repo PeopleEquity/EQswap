@@ -11,7 +11,12 @@ import {Web3Provider} from '@ethersproject/providers'
 
 const POLLING_INTERVAL = 12000
 
-const SUPPORTED_CHAIN_ID = [ChainId.GOERLI, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET] // [ChainId.GOERLI, ChainId.BSC, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET]
+const SUPPORTED_CHAIN_ID = [ChainId.GOERLI, ChainId.BSC, ChainId.BSC_TESTNET, ChainId.ARB_TESTNET].filter((chain) => {
+  if (process.env.NEXT_PUBLIC_SUPPORTED_CHAINID){
+    return process.env.NEXT_PUBLIC_SUPPORTED_CHAINID.split(',').indexOf(chain.toString()) > -1
+  }
+  return false
+})
 
 export const injected = new InjectedConnector({ supportedChainIds: SUPPORTED_CHAIN_ID })
 

@@ -135,7 +135,7 @@ const ValueLeft = styled.div`
 
 const ValueWrapper = styled.div`
   display: flex;
-  flex: 0 0 60%;
+  flex: 0 0 35%;
   justify-content: space-between;
   align-items: center;
   @media screen and (max-width: 852px) {
@@ -516,7 +516,7 @@ export default function CurrenciesList({type, setIsShowMenu}) {
             <Skeleton width={isDesktop ? 80 : 60} />
           </Vol>
         </ValueLeft>
-        <Skeleton style={{marginRight: isDesktop ? 36 : 0}} width={isDesktop ? 82 : 60} height={isDesktop ? 32 : 24} />
+        {/* <Skeleton style={{marginRight: isDesktop ? 36 : 0}} width={isDesktop ? 82 : 60} height={isDesktop ? 32 : 24} /> */}
       </ValueWrapper>
     </ListItem>)
   }
@@ -677,7 +677,7 @@ export default function CurrenciesList({type, setIsShowMenu}) {
                                               <Price>{`${toStringAmt(item.price)} ${item.unit}`}</Price>
                                               <Vol>{`Vol ${toStringAmt(item.vol)}`}</Vol>
                                             </ValueLeft>
-                                            <Rate>{`+${item.rate}%`}</Rate>
+                                            {/* <Rate>{`+${item.rate}%`}</Rate> */}
                                           </> : null
                                     }
                                   </ValueWrapper>

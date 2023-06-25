@@ -98,7 +98,12 @@ export const arbTest = {
   testnet: true,
 }
 
-const chains = [goerli, bscTest, arbTest] // [goerli, bsc, bscTest, arbTest]
+const chains = [goerli, bsc, bscTest, arbTest].filter((chain) => {
+  if (process.env.NEXT_PUBLIC_SUPPORTED_CHAINID){
+    return process.env.NEXT_PUBLIC_SUPPORTED_CHAINID.split(',').indexOf(chain?.id?.toString()) > -1
+  }
+  return false
+})
 
 export const NetworkSelect = () => {
   const { t } = useTranslation()
