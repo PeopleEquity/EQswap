@@ -64,6 +64,7 @@ import { ERC20_BYTES32_ABI } from '../config/abi/erc20'
 import ERC20_ABI from '../config/abi/erc20.json'
 import WETH_ABI from '../config/abi/weth.json'
 import AirdopABI from '../config/abi/airdop_metadata.json'
+import MintABI from '../config/abi/TokenTransfer_metadata.json'
 import multiCallAbi from '../config/abi/Multicall.json'
 import { getContract, getProviderOrSigner } from '../utils'
 
@@ -375,6 +376,10 @@ export function usePairContract(pairAddress?: string, withSignerIfPossible?: boo
 
 export function useAirdopContract(pairAddress?: string, withSignerIfPossible?: boolean): Contract | null {
   return useContract(pairAddress, AirdopABI, withSignerIfPossible)
+}
+
+export function useMintContract(pairAddress?: string, withSignerIfPossible?: boolean): Contract | null {
+  return useContract(pairAddress, MintABI, withSignerIfPossible)
 }
 
 export function useMulticallContract() {
