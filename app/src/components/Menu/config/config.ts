@@ -58,6 +58,10 @@ const config: (
           label: t('DCS'),
           href: '/dcs',
         },
+        {
+          label: t('circle'),
+          href: '/circle',
+        },
         /* {
           label: t('Income'),
           href: '/income',
@@ -94,6 +98,10 @@ const config: (
           label: t('DCS'),
           href: '/dcs',
         },
+        {
+          label: t('circle'),
+          href: '/circle',
+        },
         /* {
           label: t('Income'),
           href: '/income',
@@ -119,6 +127,10 @@ const config: (
           label: t('DCS'),
           href: '/dcs',
         },
+        {
+          label: t('circle'),
+          href: '/circle',
+        },
         /* {
           label: t('Income'),
           href: '/income',
@@ -143,6 +155,10 @@ const config: (
         {
           label: t('DCS'),
           href: '/dcs',
+        },
+        {
+          label: t('circle'),
+          href: '/circle',
         },
         /* {
           label: t('Income'),
