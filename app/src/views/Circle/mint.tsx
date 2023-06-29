@@ -1,8 +1,11 @@
 import styled, { useTheme } from 'styled-components'
 import {useRouter} from "next/router";
 import { Image, Button } from "@pancakeswap/uikit";
+import {useCallback, useEffect, useMemo, useState} from "react";
+import BigNumber from "bignumber.js";
 import CircleHeader from './components/CircleHeader'
 import Page from '../Page'
+import { useCircleProjectInfo, useCircleListInfo, useMint } from "../../hooks/useCircleProject";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -18,13 +21,49 @@ const Wrapper = styled.div`
 
 const SelectInner = styled.div`
   flex: 1;
+  max-height: 400px;
+  overflow-y: scroll;
   margin-bottom: 87px;
   margin-top: 18px;
 `
 
-const SelectButton = styled(Button)`
-  width: 105px;
+const StyledTextAreaWrapper = styled.div`
+  height: 528px;
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #e7e8f3;
+  margin: 20px 0 44px 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 `
+
+const StyledTextAreaBg = styled(Image)`
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  z-index: 0;
+`
+
+const StyledTextArea = styled.textarea`
+  height: 100%;
+  width: 100%;
+  border: 1px solid transparent;
+  resize: none;
+  padding: 8px;
+  position: absolute;
+  z-index: 1;
+  background: transparent;
+  
+  &:focus-visible {
+    outline: none;
+  }
+`
+
+const SelectButton = styled(Button)``
 
 const Select = styled.div``
 
@@ -59,6 +98,8 @@ const ProjectAvatar = styled(Image)`
   margin-right: 10px;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
+  overflow: hidden;
 `
 
 const ProjectToken = styled.div``
@@ -124,6 +165,8 @@ const Icon = styled(Image)`
   margin-right: 10px;
   width: 42px;
   height: 42px;
+  border-radius: 50%;
+  overflow: hidden;
 `
 
 const ListTitle = styled.div`
@@ -186,83 +229,162 @@ const BottomBarDesc = styled.div`
   }
 `
 
-export default function CircleHistory() {
+const BinImg = styled(Image)`
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+`
+
+const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> = ({ projectAddress }) => {
   const router = useRouter()
+  const { project } = useCircleProjectInfo(projectAddress)
+  const [textArea, setTextArea] = useState('')
+  const [read, setRead] = useState(true)
+  const [step, setStep] = useState(0)
+  const [list, setList] = useState([])
+  const listInfo = useCircleListInfo(list)
+  const [listCopy, setListCopy] = useState(null)
+  const { callback: mintCallback, mintCallback: status, isLoading } = useMint(projectAddress)
+
+  useMemo(() => {
+    if (listInfo !== null) {
+      return setListCopy(listInfo)
+    }
+    return null
+  }, [listInfo])
+
+  useEffect(() => {
+    if (status === true) {
+      router.push('/circle/link')
+    }
+  }, [status])
 
   return (
       <Page>
         <Wrapper>
           <CircleHeader
-              backFn={() => router.push('/circle/link')}
+              backFn={() => {
+                if (step === 0) {
+                  router.push('/circle/link')
+                } else {
+                  setList([])
+                  setStep(0)
+                }
+              }}
               title="NFT Mint"
-              Right={<Select onClick={() => router.push('/circle/history')}>选择群组</Select>}
+              Right={<></>}
+              /* Right={<Select onClick={() => router.push('/circle/history')}>选择群组</Select>} */
           />
-          <TopBar>
-            <ProjectInfo>
-              <ProjectAvatar width={32} height={32} src='/images/tokens/eth.png' />
-              <ProjectToken>
-                <ProjectTokenName>MTBC</ProjectTokenName>
-                <ProjectTokenValue>余额: 1902.27 MB</ProjectTokenValue>
-              </ProjectToken>
-            </ProjectInfo>
-            <ProjectPrice>
-              <ProjectPriceValue>$477.83</ProjectPriceValue>
-            </ProjectPrice>
-          </TopBar>
-          <SelectInner>
-            <List>
-              <ListLeft>
-                <Icon width={42} height={42} src="/images/tokens/eth.png" alt="link" />
-                <ListInfo>
-                  <ListTitle>ZAP</ListTitle>
-                  <ListDesc>Zappy</ListDesc>
-                </ListInfo>
-              </ListLeft>
-              <ListRight>
-                <ListValue>11500</ListValue>
-              </ListRight>
-            </List>
-            <Line />
-            <List>
-              <ListLeft>
-                <Icon width={42} height={42} src="/images/tokens/eth.png" alt="link" />
-                <ListInfo>
-                  <ListTitle>ZAP</ListTitle>
-                  <ListDesc>Zappy</ListDesc>
-                </ListInfo>
-              </ListLeft>
-              <ListRight>
-                <ListValue>11500</ListValue>
-              </ListRight>
-            </List>
-            <Line />
-            <List>
-              <ListLeft>
-                <Icon width={42} height={42} src="/images/tokens/eth.png" alt="link" />
-                <ListInfo>
-                  <ListTitle>ZAP</ListTitle>
-                  <ListDesc>Zappy</ListDesc>
-                </ListInfo>
-              </ListLeft>
-              <ListRight>
-                <ListValue>11500</ListValue>
-              </ListRight>
-            </List>
-            <Line />
-          </SelectInner>
-          <BottomBar>
-            <Line />
-            <BottomBarInner>
-              <BottomBarInnerLeft>
-                <BottomBarTitle>共计100人</BottomBarTitle>
-                <BottomBarDesc>Gas fee: 0.03 BNB</BottomBarDesc>
-              </BottomBarInnerLeft>
-              <BottomBarInnerRight>
-                <SelectButton>确定</SelectButton>
-              </BottomBarInnerRight>
-            </BottomBarInner>
-          </BottomBar>
+          {
+            step === 0 ?
+                <>
+                  <StyledTextAreaWrapper>
+                    <StyledTextArea
+                        value={textArea}
+                        onChange={(event) => {
+                          setTextArea(event.target.value)
+                          if (event.target.value === '') {
+                            setRead(true)
+                          }
+                        }}
+                        onFocus={() => {
+                          setRead(false)
+                        }}
+                        onBlur={() => {
+                          if (textArea !== '') {
+                            setRead(true)
+                          }
+                        }}
+                    />
+                    { read ? <StyledTextAreaBg width={48} height={48} src='/images/circle/copy.png' /> : null}
+                  </StyledTextAreaWrapper>
+                  <SelectButton
+                      disabled={textArea === ''}
+                      onClick={() => {
+                        const newList = textArea
+                            .split(' ')
+                            .filter((address) => {return address.length === 42 && address.slice(0, 2) === '0x' || address.slice(0, 2) === '0X'})
+                        if (newList.length > 0) {
+                          setTextArea('')
+                          setList((newList))
+                          setStep(1)
+                        } else {
+                          setTextArea('')
+                        }
+                      }}
+                  >Next</SelectButton>
+                </> :
+                <>
+                  <TopBar>
+                    {
+                      project ?
+                          <>
+                            <ProjectInfo>
+                              <ProjectAvatar width={32} height={32} src={project?.icon} />
+                              <ProjectToken>
+                                <ProjectTokenName>{project?.symbol}</ProjectTokenName>
+                                {/* <ProjectTokenValue>1902.27 MB</ProjectTokenValue> */}
+                              </ProjectToken>
+                            </ProjectInfo>
+                            <ProjectPrice>
+                              <ProjectPriceValue>{new BigNumber(project?.price).toFixed(2)}</ProjectPriceValue>
+                            </ProjectPrice>
+                          </>: null
+                    }
+                  </TopBar>
+                  <SelectInner>
+                    {
+                      listCopy ?
+                          <>
+                            {
+                              listCopy?.map((item, index) => {
+                                return <div key={item.name}>
+                                  <List>
+                                    <ListLeft>
+                                      <Icon width={42} height={42} src={item?.icon} alt="link" />
+                                      <ListInfo>
+                                        <ListTitle>{item?.name}</ListTitle>
+                                        <ListDesc>{`${item?.addr?.slice(0, 6)}...${item?.addr?.slice(item?.addr?.length - 6, item?.addr?.length)}`}</ListDesc>
+                                      </ListInfo>
+                                    </ListLeft>
+                                    <ListRight>
+                                      <ListValue>
+                                        <BinImg onClick={() => {
+                                          const a = listCopy.filter((b) => b !== item)
+                                          setListCopy(a);
+                                        }} width={16} height={16} src='/images/circle/bin.png' />
+                                      </ListValue>
+                                    </ListRight>
+                                  </List>
+                                  <Line />
+                                </div>
+                              })
+                            }
+                          </> : null
+                    }
+                  </SelectInner>
+                  <BottomBar>
+                    <Line />
+                    <BottomBarInner>
+                      <BottomBarInnerLeft>
+                        <BottomBarTitle>Total {listCopy ? listCopy?.length : '-'}</BottomBarTitle>
+                        {/* <BottomBarDesc>Gas fee: 0.03 BNB</BottomBarDesc> */}
+                      </BottomBarInnerLeft>
+                      <BottomBarInnerRight>
+                        <SelectButton
+                            disabled={isLoading}
+                            onClick={() => {
+                              mintCallback(listCopy)
+                            }}
+                        >{isLoading ? 'Loading' : 'Mint'}</SelectButton>
+                      </BottomBarInnerRight>
+                    </BottomBarInner>
+                  </BottomBar>
+                </>
+          }
         </Wrapper>
       </Page>
   )
 }
+
+export default CircleMint

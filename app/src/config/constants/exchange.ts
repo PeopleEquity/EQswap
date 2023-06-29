@@ -14,6 +14,14 @@ export const AIRDOP_ADDRESS = {
   [ChainId.ARB_TESTNET]: '0x6860c458e3854C86CeD18eCDBC299749F29629b3'
 }
 
+export const MINT_ADDRESS = {
+  [ChainId.BSC_TESTNET]: '0x0FDD73F79Bcb84Ac6c81805b50A452a61Bb0B2Cc',
+}
+
+export const HAND_NFT_ADDRESS = {
+  [ChainId.BSC_TESTNET]: '0xE3eDD36459909Db9C082e2cad19574111154D76F',
+}
+
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   [ChainId.BSC]: [

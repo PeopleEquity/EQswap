@@ -170,7 +170,7 @@ export default function CircleHistory() {
             </SelectOption>
             <Line />
           </SelectInner>
-          <SelectButton>确定</SelectButton>
+          <SelectButton>下一步</SelectButton>
         </LinkWrapper>
       </Page>
   )
