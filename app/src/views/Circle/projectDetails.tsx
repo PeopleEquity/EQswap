@@ -187,7 +187,7 @@ const Line = styled.div`
   margin-bottom: 12px;
 `
 
-export default function projectDetails() {
+export default function ProjectDetails() {
   const router = useRouter()
   const isCliam = false
   const [tab, setTab] = useState(0)

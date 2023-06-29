@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import {Button, Image, InjectedModalProps, Modal} from "@pancakeswap/uikit";
-import { useCircleProject } from '../../../hooks/useCircleProject'
 import BigNumber from "bignumber.js/bignumber";
+import {Button, Image, InjectedModalProps, Modal} from "@pancakeswap/uikit";
 
 const Wrapper = styled.div`
   padding: 12px;
