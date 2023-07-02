@@ -20,7 +20,7 @@ export const MINT_ADDRESS = {
 }
 
 export const HAND_NFT_ADDRESS = {
-  [ChainId.BSC_TESTNET]: '0xE3eDD36459909Db9C082e2cad19574111154D76F',
+  [ChainId.BSC_TESTNET]: '0xD8e6800511A23ab3B30E7175D5831894b8390529',
 }
 
 // used to construct intermediary pairs for trading

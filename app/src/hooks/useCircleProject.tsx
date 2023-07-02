@@ -8,7 +8,7 @@ import {useCallWithGasPrice} from "./useCallWithGasPrice";
 import useToast from "./useToast";
 import { MINT_ADDRESS, HAND_NFT_ADDRESS } from "../config/constants/exchange";
 import useCatchTxError from "./useCatchTxError";
-import { useMintContract } from './useContract';
+import { useMintContract, useNFTHandContract } from './useContract';
 
 export const useCircleProject = () => {
   const { chainId, account } = useActiveWeb3React()
@@ -46,12 +46,12 @@ export const useCircleProject = () => {
     return {
       error: false,
     }
-  }, [chainId])
+  }, [chainId, account])
 
 
   useEffect(() => {
     fetchProjects()
-  }, [chainId])
+  }, [chainId, account])
 
   return { projects }
 }
@@ -92,12 +92,12 @@ export const useCircleProjectInfo = (projectAddress) => {
     return {
       error: false,
     }
-  }, [chainId, projectAddress])
+  }, [chainId, account, projectAddress])
 
 
   useEffect(() => {
     fetchProjects()
-  }, [chainId, projectAddress])
+  }, [chainId, account, projectAddress])
 
   return { project }
 }
@@ -135,7 +135,7 @@ export const useCircleListInfo = (userAddressList) => {
     return {
       error: false,
     }
-  }, [chainId, JSON.stringify(userAddressList)])
+  }, [chainId, account, JSON.stringify(userAddressList)])
 
 
   useEffect(() => {
@@ -143,7 +143,7 @@ export const useCircleListInfo = (userAddressList) => {
       return
     }
     fetchList()
-  }, [chainId, JSON.stringify(userAddressList)])
+  }, [chainId, account, JSON.stringify(userAddressList)])
 
   return listInfo
 }
@@ -235,6 +235,101 @@ export const useMint = (projectAddrress) => {
   return {
     callback: mint,
     mintCallback,
+    isLoading
+  }
+}
+
+export const useCircleNftInfo = () => {
+  const { chainId, account } = useActiveWeb3React()
+
+  const [already, setAlready] = useState(null)
+  const [waiting, setWaiting] = useState(null)
+  const [history, setHistory] = useState(null)
+
+  const fetchList = useCallback(async () => {
+    try {
+      const res: any = await fetch(
+          `https://www.equityswap.club/app/index/nft`,
+          {
+            method: 'post',
+            body: JSON.stringify({
+              net: account ? `evm--${Number(chainId)}` : `evm--97`,
+              addr: account.toLowerCase()
+            }),
+            headers: new Headers({
+              'Content-Type': 'application/json'
+            })
+          },
+      )
+      const obj = await res.json()
+      if (obj?.code === 0) {
+        setAlready(obj?.datas?.draw_list_already)
+        setWaiting(obj?.datas?.draw_list_waiting)
+        setHistory(obj?.datas?.histroy_list)
+      }
+    } catch (error) {
+      console.error(`Failed to fetch Nft info`, error)
+      return {
+        error: true,
+      }
+    }
+    return {
+      error: false,
+    }
+  }, [chainId, account])
+
+
+  useEffect(() => {
+    if (!account) {
+      return
+    }
+    fetchList()
+  }, [chainId, account])
+
+  return {
+    already,
+    waiting,
+    history
+  }
+}
+
+export const useClaim = () => {
+  const { account, chainId } = useActiveWeb3React()
+  const { t } = useTranslation()
+  const claimContract = useNFTHandContract(HAND_NFT_ADDRESS[chainId])
+  const { callWithGasPrice } = useCallWithGasPrice()
+  const { fetchWithCatchTxError, loading: isLoading } = useCatchTxError()
+  const [claimCallback, setClaimCallback] = useState(null)
+
+  const claim = useCallback(async (NftId): Promise<void> => {
+    if (!claimContract) {
+      console.error('claimContract is null')
+      return
+    }
+
+    if (!NftId) {
+      console.error('NftId is null')
+      return
+    }
+
+    if (!account) {
+      console.error('web3 not connet')
+      return
+    }
+
+    const receipt = await fetchWithCatchTxError(() => {
+      return callWithGasPrice(claimContract, 'claim', [NftId])
+    })
+    if (receipt?.status) {
+      setClaimCallback(true)
+    } else {
+      setClaimCallback(false)
+    }
+  }, [account, claimContract, chainId])
+
+  return {
+    callback: claim,
+    claimCallback,
     isLoading
   }
 }
