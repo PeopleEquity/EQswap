@@ -128,7 +128,7 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
                         return <div key={item.name}>
                           <List>
                             <ListLeft>
-                              <Icon width={32} height={32} src={'/images/circle/arrow.png'} alt="link" />
+                              <Icon width={32} height={32} src="/images/circle/arrow.png" alt="link" />
                               <ListInfo>
                                 <ListTitle>{`Project: ${item?.project}`}</ListTitle>
                                 <ListDesc>{`From ${item?.handFrom}`}</ListDesc>
@@ -159,7 +159,7 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
                         return <div key={item.name}>
                           <List>
                             <ListLeft>
-                              <Icon width={32} height={32} src={'/images/circle/toClaim.png'} alt="link" />
+                              <Icon width={32} height={32} src="/images/circle/toClaim.png" alt="link" />
                               <ListInfo>
                                 <ListTitle>{`Project ${item?.project}`}</ListTitle>
                                 <ListDesc>{`From ${item?.handFrom}`}</ListDesc>
