@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled, { useTheme } from 'styled-components'
 import {Image} from "@pancakeswap/uikit";
+import {useTranslation} from "@pancakeswap/localization";
 
 const LinkInfoWrapper = styled.div`
   margin-top: 12px;
@@ -61,6 +62,7 @@ const CheckTitle = styled.div`
 `
 
 export default function LinkInfo({inv}) {
+  const { t } = useTranslation()
 
   return (
       <LinkInfoWrapper>
@@ -71,7 +73,7 @@ export default function LinkInfo({inv}) {
                   inv?.addr !== '0x0000000000000000000000000000000000000000' ?
                   <LinkUserInfoWrapper>
                     <CheckTitle>
-                      核对你对应的分享人
+                      {t('circle_link_user')}
                     </CheckTitle>
                     <UserCard>
                       <UserAvatar width={24} height={24} src={inv?.icon} />
@@ -79,7 +81,7 @@ export default function LinkInfo({inv}) {
                     </UserCard>
                     <UserAddress>{inv?.addr}</UserAddress>
                   </LinkUserInfoWrapper> :
-                  <WraningInfo>未检测到你对应的项目节点，必须要有项目节点之后才能批量转账，否则会造成数据混乱和资产损失</WraningInfo>
+                  <WraningInfo>{t('circle_link_text')}</WraningInfo>
                 }
               </> : null
         }

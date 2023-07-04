@@ -3,6 +3,8 @@ import {useRouter} from "next/router";
 import { Image } from "@pancakeswap/uikit";
 import CircleHeader from './components/CircleHeader'
 import Page from '../Page'
+import {useCircleNftInfo} from "../../hooks/useCircleProject";
+import {useTranslation} from "@pancakeswap/localization";
 
 const LinkWrapper = styled.div`
   width: 100%;
@@ -82,50 +84,36 @@ const ListValue = styled.div`
 
 export default function CircleHistory() {
   const router = useRouter()
+  const { t } = useTranslation()
+  const { history } = useCircleNftInfo()
 
   return (
       <Page>
         <LinkWrapper>
-          <CircleHeader backFn={() => router.push('/circle/link')} title="历史记录" Right={null} />
-          <List onClick={() => router.push('/circle/whitelist')}>
-            <ListLeft>
-              <Icon width={32} height={32} src="/images/tokens/eth.png" alt="link" />
-              <ListInfo>
-                <ListTitle>MTBC</ListTitle>
-                <ListDesc>Metabolic</ListDesc>
-              </ListInfo>
-            </ListLeft>
-            <ListRight>
-              <ListValue>11900</ListValue>
-            </ListRight>
-          </List>
-          <Line />
-          <List onClick={() => router.push('/circle/whitelist')}>
-            <ListLeft>
-              <Icon width={32} height={32} src="/images/tokens/eth.png" alt="link" />
-              <ListInfo>
-                <ListTitle>VDGT</ListTitle>
-                <ListDesc>VeleroDAO</ListDesc>
-              </ListInfo>
-            </ListLeft>
-            <ListRight>
-              <ListValue>11800</ListValue>
-            </ListRight>
-          </List>
-          <Line />
-          <List onClick={() => router.push('/circle/whitelist')}>
-            <ListLeft>
-              <Icon width={32} height={32} src="/images/tokens/eth.png" alt="link" />
-              <ListInfo>
-                <ListTitle>ZAP</ListTitle>
-                <ListDesc>Zappy</ListDesc>
-              </ListInfo>
-            </ListLeft>
-            <ListRight>
-              <ListValue>11500</ListValue>
-            </ListRight>
-          </List>
-          <Line />
+          <CircleHeader backFn={() => router.push('/circle/link')} title={t('circle_history')} Right={null} />
+          {
+            history ?
+                <>
+                  {
+                    history?.map((item, index) => {
+                      return <>
+                        <List>
+                          <ListLeft>
+                            <Icon width={32} height={32} src="/images/circle/toClaim.png" alt="link" />
+                            <ListInfo>
+                              <ListTitle>{t('circle_project')} {`${item?.project}`}</ListTitle>
+                              <ListDesc>{t('circle_from')} {`${item?.handFrom}`}</ListDesc>
+                            </ListInfo>
+                          </ListLeft>
+                          <ListRight>
+                          </ListRight>
+                        </List>
+                        <Line />
+                      </>
+                    })
+                  }
+                </>  : null
+          }
         </LinkWrapper>
       </Page>
   )

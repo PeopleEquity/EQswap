@@ -1850,5 +1850,22 @@
   "airdop_click_claim_test_coins": "点击领取测试币",
   "airdop_claim_test_coins": "领取测试币",
   "airdop_can_claim": "今日可领取10000个USDT（测试币）",
-  "airdop_n_can_claim": "今日已领取，请24小时后再来"
+  "airdop_n_can_claim": "今日已领取，请24小时后再来",
+  "circle_batch": "批量分享",
+  "circle_whitelist": "白名单",
+  "circle_history": "历史记录",
+  "circle_claim": "NFT 领取",
+  "circle_mint": "NFT 铸造",
+  "circle_next": "下一步",
+  "circle_select": "选择项目",
+  "circle_space": "点击此处粘贴接收地址地址之间用'空格'区分",
+  "circle_total": "总计",
+  "circle_loading": "请等待",
+  "circle_action_claim": "领取",
+  "circle_action_mint": "铸造",
+  "circle_project": "项目",
+  "circle_from": "来自",
+  "circle_claimed": "已领取",
+  "circle_link_user": "核对你对应的分享人",
+  "circle_link_text": "未检测到你对应的项目节点，必须要有项目节点之后才能批量转账，否则会造成数据混乱和资产损失"
 }

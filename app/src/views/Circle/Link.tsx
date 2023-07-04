@@ -2,6 +2,7 @@ import styled, { useTheme } from 'styled-components'
 import BigNumber from "bignumber.js";
 import {useEffect, useState} from 'react'
 import {useRouter} from "next/router";
+import {useTranslation} from "@pancakeswap/localization";
 import {BoxProps, Button, Image, InjectedModalProps, useModal} from '@pancakeswap/uikit'
 import LinkSwitch from './components/LinkSwitch'
 import CircleHeader from './components/CircleHeader'
@@ -112,6 +113,7 @@ const SelectButton = styled(Button)`
 
 export default function CircleList() {
   const router = useRouter()
+  const { t } = useTranslation()
   const [project, setProject] = useState(null)
   const [isShowModal, setShowModal] = useState(false)
   const { projects } = useCircleProject()
@@ -124,8 +126,8 @@ export default function CircleList() {
           <LinkInner>
             <CircleHeader
                 backFn={() => router.push('/circle')}
-                title="Mint"
-                Right={<History onClick={() => router.push('/circle/history')}>History</History>}
+                title={t('circle_mint')}
+                Right={<History onClick={() => router.push('/circle/history')}>{t('circle_history')}</History>}
             />
             {/* <LinkSwitch /> */}
             <CurrentProject onClick={() => {
@@ -152,7 +154,7 @@ export default function CircleList() {
                     <>
                       <ProjectInfo>
                         <ProjectToken>
-                          <ProjectSelect className={projects ? '' : 'loading'}>Select</ProjectSelect>
+                          <ProjectSelect className={projects ? '' : 'loading'}>{t('circle_select')}</ProjectSelect>
                         </ProjectToken>
                       </ProjectInfo>
                       <ProjectPrice>
@@ -169,7 +171,7 @@ export default function CircleList() {
                 !project?.token_addr
               }
               onClick={() => router.push(`/circle/mint/${project?.token_addr}`)}
-          >Next</SelectButton>
+          >{t('circle_next')}</SelectButton>
         </LinkWrapper>
       </Page>
   )

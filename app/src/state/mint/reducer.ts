@@ -12,7 +12,7 @@ const initialState: MintState = {
   independentField: Field.CURRENCY_A,
   typedValue: '',
   otherTypedValue: '',
-  customPrice: '',
+  customPrice: '1',
 }
 
 export default createReducer<MintState>(initialState, (builder) =>

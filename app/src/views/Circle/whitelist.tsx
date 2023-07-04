@@ -2,10 +2,12 @@ import styled from 'styled-components'
 import {useRouter} from "next/router";
 import { Image, Button } from "@pancakeswap/uikit";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "@pancakeswap/localization";
 import BigNumber from "bignumber.js";
 import CircleHeader from './components/CircleHeader'
 import Page from '../Page'
 import { useCircleNftInfo, useClaim } from "../../hooks/useCircleProject";
+
 
 const Wrapper = styled.div`
   width: 100%;
@@ -84,7 +86,7 @@ const ListValue = styled.div`
   font-family: 'PingFang SC';
   font-style: normal;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 22px;
   text-align: right;
   color: #11142d;
@@ -99,6 +101,7 @@ const ListClaimBtn = styled(Button)`
 
 const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
   const router = useRouter()
+  const { t } = useTranslation()
   const { waiting, already } = useCircleNftInfo()
   const { callback: claimCallback, claimCallback: status, isLoading } = useClaim()
   const [claimId, setClaimId] = useState(null)
@@ -114,9 +117,9 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
         <Wrapper>
           <CircleHeader
               backFn={() => {
-                router.push('/circle/link')
+                router.push('/circle')
               }}
-              title="NFT Claim"
+              title={t('circle_claim')}
               Right={<></>}
           />
           <SelectInner>
@@ -130,8 +133,8 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
                             <ListLeft>
                               <Icon width={32} height={32} src="/images/circle/arrow.png" alt="link" />
                               <ListInfo>
-                                <ListTitle>{`Project: ${item?.project}`}</ListTitle>
-                                <ListDesc>{`From ${item?.handFrom}`}</ListDesc>
+                                <ListTitle>{t('circle_project')} {`${item?.project}`}</ListTitle>
+                                <ListDesc>{t('circle_from')} {`${item?.handFrom}`}</ListDesc>
                               </ListInfo>
                             </ListLeft>
                             <ListRight>
@@ -140,7 +143,7 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
                                   claimCallback(item?.NFTID)
                                   setClaimId(item?.NFTID)
                                 }}>
-                                  { isLoading ? 'Loading' : 'Cliam'}
+                                  { isLoading ? t('circle_loading') : t('circle_action_claim')}
                                 </ListClaimBtn>
                               </ListValue>
                             </ListRight>
@@ -161,13 +164,13 @@ const CircleWhiteList: React.FC<React.PropsWithChildren> = () => {
                             <ListLeft>
                               <Icon width={32} height={32} src="/images/circle/toClaim.png" alt="link" />
                               <ListInfo>
-                                <ListTitle>{`Project ${item?.project}`}</ListTitle>
-                                <ListDesc>{`From ${item?.handFrom}`}</ListDesc>
+                                <ListTitle>{t('circle_project')} {`${item?.project}`}</ListTitle>
+                                <ListDesc>{t('circle_from')} {`${item?.handFrom}`}</ListDesc>
                               </ListInfo>
                             </ListLeft>
                             <ListRight>
                               <ListValue>
-                                已领取
+                                {t('circle_claimed')}
                               </ListValue>
                             </ListRight>
                           </List>

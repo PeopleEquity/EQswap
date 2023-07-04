@@ -2,6 +2,7 @@ import styled, { useTheme } from 'styled-components'
 import {useRouter} from "next/router";
 import { Image, Button } from "@pancakeswap/uikit";
 import {useCallback, useEffect, useMemo, useState} from "react";
+import {useTranslation} from "@pancakeswap/localization";
 import BigNumber from "bignumber.js";
 import CircleHeader from './components/CircleHeader'
 import Page from '../Page'
@@ -235,8 +236,18 @@ const BinImg = styled(Image)`
   cursor: pointer;
 `
 
+const StyledText = styled.div`
+  font-size: 14px;
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  text-align: center;
+  line-height: 20px;
+`
+
 const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> = ({ projectAddress }) => {
   const router = useRouter()
+  const { t } = useTranslation()
   const { project } = useCircleProjectInfo(projectAddress)
   const [textArea, setTextArea] = useState('')
   const [read, setRead] = useState(true)
@@ -271,7 +282,7 @@ const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> 
                   setStep(0)
                 }
               }}
-              title="NFT Mint"
+              title={t('circle_mint')}
               Right={<></>}
               /* Right={<Select onClick={() => router.push('/circle/history')}>选择群组</Select>} */
           />
@@ -285,18 +296,29 @@ const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> 
                           setTextArea(event.target.value)
                           if (event.target.value === '') {
                             setRead(true)
+                          } else {
+                            setRead(false)
                           }
                         }}
                         onFocus={() => {
-                          setRead(false)
+                          if (textArea === '') {
+                            setRead(true)
+                          } else {
+                            setRead(false)
+                          }
                         }}
                         onBlur={() => {
-                          if (textArea !== '') {
+                          if (textArea === '') {
                             setRead(true)
+                          } else {
+                            setRead(false)
                           }
                         }}
                     />
-                    { read ? <StyledTextAreaBg width={48} height={48} src='/images/circle/copy.png' /> : null}
+                    { read ? <>
+                      <StyledTextAreaBg width={48} height={48} src='/images/circle/copy.png' />
+                      <StyledText>{t('circle_space')}</StyledText>
+                    </> : null}
                   </StyledTextAreaWrapper>
                   <SelectButton
                       disabled={textArea === ''}
@@ -312,7 +334,7 @@ const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> 
                           setTextArea('')
                         }
                       }}
-                  >Next</SelectButton>
+                  >{t('circle_next')}</SelectButton>
                 </> :
                 <>
                   <TopBar>
@@ -367,7 +389,7 @@ const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> 
                     <Line />
                     <BottomBarInner>
                       <BottomBarInnerLeft>
-                        <BottomBarTitle>Total {listCopy ? listCopy?.length : '-'}</BottomBarTitle>
+                        <BottomBarTitle>{t('circle_total')} {listCopy ? listCopy?.length : '-'}</BottomBarTitle>
                         {/* <BottomBarDesc>Gas fee: 0.03 BNB</BottomBarDesc> */}
                       </BottomBarInnerLeft>
                       <BottomBarInnerRight>
@@ -376,7 +398,7 @@ const CircleMint: React.FC<React.PropsWithChildren<{ projectAddress: string }>> 
                             onClick={() => {
                               mintCallback(listCopy)
                             }}
-                        >{isLoading ? 'Loading' : 'Mint'}</SelectButton>
+                        >{isLoading ? t('circle_action_loading') : t('circle_action_mint')}</SelectButton>
                       </BottomBarInnerRight>
                     </BottomBarInner>
                   </BottomBar>

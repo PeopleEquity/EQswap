@@ -1850,5 +1850,22 @@
   "airdop_click_claim_test_coins": "Click to claim test coins",
   "airdop_claim_test_coins": "Claim Test Coins",
   "airdop_can_claim": "You can claim 10,000 USDT today (test coins)",
-  "airdop_n_can_claim": "You have already claimed for today. Please come back after 24 hours"
+  "airdop_n_can_claim": "You have already claimed for today. Please come back after 24 hours",
+  "circle_batch": "Batch Sharing",
+  "circle_whitelist": "Whitelist",
+  "circle_history": "History",
+  "circle_claim": "NFT Claim",
+  "circle_mint": "NFT Mint",
+  "circle_next": "Next",
+  "circle_select": "Select Project",
+  "circle_space": "Click here to paste the receiving address Separate multiple addresses with a space",
+  "circle_total": "Total",
+  "circle_loading": "Loading",
+  "circle_action_claim": "Claim",
+  "circle_action_mint": "Mint",
+  "circle_project": "Project",
+  "circle_from": "From",
+  "circle_claimed": "Claimed",
+  "circle_link_user": "Check your corresponding sharers",
+  "circle_link_text": "A corresponding project node is required before proceeding with batch transfers to avoid data mismatch and asset loss"
 }

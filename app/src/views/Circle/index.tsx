@@ -1,7 +1,7 @@
 import styled, { useTheme } from 'styled-components'
 import { Image } from '@pancakeswap/uikit'
 import { useRouter } from 'next/router'
-
+import { useTranslation } from "@pancakeswap/localization";
 import Page from '../Page'
 
 const ListWrapper = styled.div`
@@ -12,7 +12,7 @@ const ListWrapper = styled.div`
   flex-direction: column;
   min-height: 550px;
   background: #ffff;
-  padding: 0 20px 0 16px;
+  padding: 20px 20px 0 16px;
 `
 
 const Line = styled.div`
@@ -20,7 +20,7 @@ const Line = styled.div`
   height: 1px;
   background: #efefef;
   transform: scaleY(0.5);
-  margin-left: 8px;
+  margin: 4px 0 4px 8px;
 `
 
 const List = styled.div`
@@ -67,6 +67,7 @@ const ListTitle = styled.div`
 `
 
 export default function CircleList() {
+  const { t } = useTranslation()
   const router = useRouter()
 
   return (
@@ -75,7 +76,7 @@ export default function CircleList() {
           <List onClick={() => router.push('/circle/link')}>
             <ListLeft>
               <Icon width={20} height={20} src="/images/circle/link.png" alt="link" />
-              <ListTitle>批量绑定</ListTitle>
+              <ListTitle>{t('circle_batch')}</ListTitle>
             </ListLeft>
             <ListRight>
               <Arrow width={16} height={16}  src="/images/circle/arrow.png" alt="to link" />
@@ -85,7 +86,7 @@ export default function CircleList() {
           <List onClick={() => router.push('/circle/whitelist')}>
             <ListLeft>
               <Icon width={20} height={20} src="/images/circle/whitelist.png" alt="link" />
-              <ListTitle>白名单</ListTitle>
+              <ListTitle>{t('circle_whitelist')}</ListTitle>
             </ListLeft>
             <ListRight>
               <Arrow width={16} height={16}  src="/images/circle/arrow.png" alt="to link" />
