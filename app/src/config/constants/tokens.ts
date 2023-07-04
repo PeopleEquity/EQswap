@@ -38,8 +38,8 @@ const USDC_TESTNET = new Token(
 
 const PE_MAINNET = new Token(
     ChainId.BSC,
-    '0x9411A8a8757F08591594333306fe115927C072E4',
-    18,
+    '0x03afa8Bf1cDb8B47Af35F90807157b2c70EE25ee',
+    9,
     'PE',
     'PE',
     'https://www.peopleequity.club/',

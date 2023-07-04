@@ -1,10 +1,10 @@
 import styled, { useTheme } from 'styled-components'
 import {useRouter} from "next/router";
+import {useTranslation} from "@pancakeswap/localization";
 import { Image } from "@pancakeswap/uikit";
 import CircleHeader from './components/CircleHeader'
 import Page from '../Page'
 import {useCircleNftInfo} from "../../hooks/useCircleProject";
-import {useTranslation} from "@pancakeswap/localization";
 
 const LinkWrapper = styled.div`
   width: 100%;
@@ -105,8 +105,7 @@ export default function CircleHistory() {
                               <ListDesc>{t('circle_from')} {`${item?.handFrom}`}</ListDesc>
                             </ListInfo>
                           </ListLeft>
-                          <ListRight>
-                          </ListRight>
+                          <ListRight />
                         </List>
                         <Line />
                       </>
